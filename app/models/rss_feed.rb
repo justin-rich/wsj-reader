@@ -27,8 +27,7 @@ class RssFeed
                     :description => (item/'description').inner_html,
                     :rss_feed => self,
                     :url => (item/'link').inner_html,
-                    :priority => index,
-                    :active => true
+                    :priority => index
                   )
     end
     

@@ -14,12 +14,16 @@ class Article
   property :priority,    Integer
   property :active,      Boolean
   property :unread,      Boolean  
+  property :attempts,    Integer
+  property :created_at,  DateTime
+  property :updated_at,  DateTime  
   
   belongs_to :rss_feed
   belongs_to :category
   has 1, :image
   
-  after :create, :import
+  after  :create, :import
+  before :destroy, :destroy_image
   
   is :searchable
   
@@ -40,11 +44,20 @@ class Article
   def self.factory(attrs)
     a = first(:url => attrs[:url])
     
+    default_attrs = {
+      :active => true,
+      :attempts => a ? a.attempts + 1 : 0
+    }
+    
+    attrs = attrs.merge(default_attrs)
+    
     if a
-      a.update_attributes(:active => true, 
-                          :priority => attrs[:priority], 
-                          :description => attrs[:description])
-                          
+      if a.image.nil? && a.attempts < 2
+        a.update_attributes(a.scrape_info(attrs))
+      else
+        a.update_attributes(attrs)
+      end
+                 
       a                    
     else
       self.create(attrs)          
@@ -81,8 +94,12 @@ class Article
   # the article's URL, and will save the Article's attributes to 
   # the database
   
-  def import
-    self.doc = get_html 
+  def import    
+    self.update_attributes(scrape_info({}))
+  end
+  
+  def scrape_info(default_attrs)
+    self.doc = get_html
     
     attrs = {
       :title    => get_title,
@@ -93,7 +110,7 @@ class Article
       :image    => get_image
     }
     
-    self.update_attributes(attrs)
+    attrs.merge(default_attrs)    
   end
   
   def get_html
@@ -158,5 +175,10 @@ class Article
   
   def clean(str)
     str.gsub(/\s+/, ' ').strip
+  end
+  
+  def destroy_image
+    return true if self.image.nil?
+    self.image.destroy
   end
 end
