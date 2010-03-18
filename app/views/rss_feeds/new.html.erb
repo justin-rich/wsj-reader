@@ -1,0 +1,6 @@
+<%= form_for @rss_feed, :action => resource(:rss_feeds) do -%>
+  Name: <%= text_field :name -%>
+  URL: <%= text_field :url -%> 
+  Category id: <%= text_field :category_id %> 
+  <%= submit "Continue" -%>
+<% end  =%>

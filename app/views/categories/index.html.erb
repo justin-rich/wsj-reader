@@ -1,0 +1,78 @@
+<% @title = "Home" %>
+
+
+<%= partial "shared/header" %>
+
+<div class="category">
+  <%= partial "shared/search" %>
+  <%= partial "shared/categories" %>
+  <h3>The Wall Street Journal</h3>  
+</div>
+
+<ul class="categories">
+<% @categories.each do |category| %>
+  <li>  
+    <h2>
+      <%= link_to category.name, "/categories/#{category.id}/articles" %>
+    </h2>
+    
+    <div class="top_stories">      
+      <% category.top_stories.each_with_index do |article,index| %>
+        <% unless index == 0 %>
+          <p class="top_half_border"></p>
+        <% end %>
+        
+        <p><%= link_to article.title, "/articles/#{article.id}" %></p>
+      <% end %>
+    </div>    
+  </li>
+<% end %>
+</ul>
+
+
+<script type="text/javascript" charset="utf-8">
+  
+  $("#newspaper_name").hide();
+  
+  // Add data to let the hover know which index they have
+	for(var i = 0; i < $("ul li h2 a").size(); i++) {
+		$("ul li h2 a").eq(i).data("number", i);
+	}
+	
+	// Simulote the "hover" effect with the mouse
+	$("ul li h2 a").hover(
+		function () {
+			currentSelection = $(this).data("number");
+			setSelected(currentSelection);
+		}, function() {
+			$("ul li h2 a").removeClass("itemhover");
+			currentUrl = '';
+		}
+	);
+	
+	
+  function navigate(direction) {
+  	// Check if any of the menu items is selected
+  	if($("ul .itemhover").size() == 0) {
+  		currentSelection = -1;
+  	}
+
+  	if(direction == 'up' && currentSelection != -1) {
+  		if(currentSelection != 0) {
+  			currentSelection--;
+  		}
+  	} else if (direction == 'down') {
+  		if(currentSelection != $("ul li").size() -1) {
+  			currentSelection++;
+  		}
+  	}
+  	setSelected(currentSelection);
+  }
+
+  function setSelected(menuitem) {
+  	$("ul li").removeClass("itemhover");
+  	$("ul li").eq(menuitem).addClass("itemhover");
+  	currentUrl = $("ul li h2 a").eq(menuitem).attr("href");
+  }
+	
+</script>

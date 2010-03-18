@@ -1,0 +1,21 @@
+<div class="dateline">
+  <div class="left">
+      <% if @index %>      
+        <span id="index">
+          <%= @index + 1 %>          
+        </span>        
+      <% end %>
+    <span id="date">
+      <% if @date && Time.parse(@date) %>
+        <%= Time.parse(@article.pub_date).strftime("%A %B %d, %Y") %>      
+      <% else %>
+        <%= Time.now.strftime("%A %B %d, %Y") %>      
+      <% end %>
+    </span>
+  </div>
+  <div class="right">
+    <div id="newspaper_name">THE WALL STREET JOURNAL</div>
+  </div>
+</div>
+
+<div class="border">&nbsp;</div>

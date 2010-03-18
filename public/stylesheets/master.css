@@ -1,0 +1,263 @@
+/* General */
+
+body {
+  font-family:  Georgia,"Century Schoolbook","Times New Roman",Times,serif;
+  font-size:  14px;
+  background-color:  #FFFFF3;
+}
+
+* {
+  margin:  0px;
+  padding:  0px;
+  text-decoration:  none;
+}
+
+html {
+  height:  100%;
+  margin:  1em;
+	padding: 0em 1em 1em 1em;
+}
+
+body {
+	padding-bottom:5em;
+	border-bottom:1em solid #666666;
+}
+
+img {
+	border:1px solid black;
+	text-align:center;
+}
+
+ul {
+	margin-top:2em;
+}
+
+/* /shared/header partial */
+
+div.dateline {
+	width:100%;
+}
+
+.left {
+	position:relative;
+	float:left;
+}
+
+.right {
+	position:relative;
+	float:right;
+}
+
+.center {
+	position:relative;
+	float:center;
+}
+
+span#index {
+	font-weight:bold;
+	padding-right:1em;
+}
+
+span#date {
+	font: italic 0.8em/1.0 Georgia,"Century Schoolbook","Times New Roman",Times,serif
+}
+
+.border {
+	height:0.1em;
+	clear:both;
+	border-bottom:1px solid #333333;
+	margin-bottom:2px;
+}
+
+.category {
+	border-top:1px #333333 solid;
+	border-bottom:1px #333333 solid;
+}
+
+.category h3 {
+	font-family: "Bodoni SvtyTwo SC ITC TT";
+	font-size:200%;
+	color: #444444;
+	padding:0em;
+	margin:0em;
+	text-align:center;
+	text-transform: uppercase;
+	width:100%;
+}
+
+/* Home page*/
+
+ul.categories {
+	list-style-type: none;
+	-moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+	text-align:center;
+}
+
+.categories li {
+	list-style: none outside none;
+	min-height:100px;
+	padding:0em;
+	margin:0em;
+	border-top:1px solid #333333;
+	border-bottom:1px solid #333333;	
+}
+
+.categories img {
+	float:right;
+	margin-left:1em;
+	vertical-align:top;
+}
+
+.categories h2 a:link, .categories h2 a:visited, .categories h2 a:active{
+	font-family: Arial,sans-serif;
+	font-size:65%;
+	color:#333333;
+	outline:medium none;	
+	background-image: url("http://s3.wsj.net/img/global_dotted_arrow.gif");
+	background-position: center right;
+	background-repeat: no-repeat;
+}
+
+.categories h3 a:link, .categories h3 a:visited, .categories h3 a:active{
+	color:#093D72;
+}
+
+.categories p {
+	text-align:center;
+	margin-top:1em;
+	margin-bottom:1em;	
+	font: italic 1.0em/1.0 Georgia,"Century Schoolbook","Times New Roman",Times,serif;
+	font-size:110%;
+}
+
+.categories a:link, .categories a:visited, .categories a:active {
+	color:#333333;
+}
+
+.categories p.top_half_border{
+	border-top:1px solid #333333;
+	width:25%;
+	margin:0 auto;
+}
+
+.categories .top_stories {
+	margin:1em auto;
+	width:75%;
+	text-align:center;
+}
+
+/* Category detail page*/
+
+ul.articles {
+	list-style-type: none;
+}
+
+ul.three_column {
+	-moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+}
+
+ul.stacked li {
+	width:50%;
+}
+
+.articles li {
+	list-style: none outside none;
+	padding: 1em 1em 1em 1em;
+}
+
+.articles img {
+	float: right;
+	vertical-align:top;
+}
+
+.articles a:link, .articles a:visited, .articles a:active{
+	color:#093D72;
+	outline:medium none;
+}
+
+.itemhover  a:link, .itemhover a:visited, .itemhover a:active{
+	color:#C74B15;
+}
+
+/* Article detail */
+
+.article img {
+	margin-top:1em;
+}
+
+.article h1 {
+	font-size: 300%;
+	margin-top:0.25em;
+}
+
+.article h2 {
+	color: #333333;
+	font:  italic 1.6em/1.1 Georgia,"Century Schoolbook","Times New Roman",Times,serif;
+	margin-top:0.5em;
+}
+
+.byline {
+	color: #111111;
+	padding-bottom:0.25em;
+	border-bottom:1px solid #333333;
+	text-transform:capitalize;
+	font-family: "Bodoni SvtyTwo SC ITC TT";
+	margin-bottom:1em;
+}
+
+.article div#caption {
+	color: #666666;
+	font-size: 85%;
+	font-family: Arial,sans-serif;
+}
+
+.article div#fulltext {
+	padding-top: 2em;
+  -moz-column-count: 4;
+  -webkit-column-count: 4;
+  column-count: 4;
+}
+
+.article div#fulltext p {
+	text-indent: 1em;
+	font-size:110%;
+}
+
+/* Help menu */
+
+#menu {
+	display:none;
+}
+
+/* Search */
+
+#search {
+	display:none;
+	text-align:right;
+}
+
+#search input{
+	margin-top:0.5em;
+	position:absolute;
+	right:-25%;
+	z-index:-3;
+}
+
+/* Categories drop down */
+
+#categories {
+	display:none;
+}
+
+#categories select{
+	position:absolute;	
+	left:0px;
+	top:0px;
+	margin-top:0.5em;
+}
+
+

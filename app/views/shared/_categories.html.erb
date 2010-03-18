@@ -1,0 +1,9 @@
+<div id="categories" class="left">
+  <form action="/articles" method="get" accept-charset="utf-8" id="categories_form">
+    <select name="category_id" id="category_id">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+  </form>
+</div>

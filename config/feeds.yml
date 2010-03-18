@@ -1,0 +1,98 @@
+  - name   : "Today's Paper"
+    display: 0
+    feeds  :
+    - name : "Today's Paper"
+      url  : "http://online.wsj.com/xml/rss/3_7084.xml"
+      
+  - name  : "Today's Newspaper"
+    display: 0
+    feeds  :
+    - name : "Page One"
+      url  : "http://online.wsj.com/xml/rss/3_7205.xml"
+    - name : "Marketplace"
+      url  : "http://online.wsj.com/xml/rss/3_7206.xml"
+    - name : "Money & Investing"
+      url  : "http://online.wsj.com/xml/rss/3_7207.xml"
+    - name : "Personal Journal"
+      url  : "http://online.wsj.com/xml/rss/3_7208.xml"
+    - name : "Weekend Journal"
+      url  : "http://online.wsj.com/xml/rss/3_7209.xml"
+  
+  
+  - name   : "What's News"
+    display: 0
+    feeds  :
+    - name : "What's News"
+    - url  : "http://online.wsj.com/xml/rss/3_7011.xml"
+        
+  - name   : "Investing"
+    display: 1
+    feeds  :
+    - name : "Investing"
+      url  : "http://online.wsj.com/xml/rss/3_7425.xml"
+        
+  - name   : "Personal Finance"
+    display: 1  
+    feeds  :
+    - name : "Personal Finance"
+      url  : "http://online.wsj.com/xml/rss/3_7104.xml"
+    - name : "Insurance"
+      url  : "http://online.wsj.com/xml/rss/3_7424.xml"
+    - name : "Retirement Planning"
+      url  : "http://online.wsj.com/xml/rss/3_7427.xml"
+    - name : "Taxes"
+      url  : "http://online.wsj.com/xml/rss/3_7428.xml"
+      
+  - name   : "World"
+    display: 1  
+    feeds  :
+    - name : "World"
+      url  : "http://online.wsj.com/xml/rss/3_7085.xml"
+  
+  - name   : "Business"
+    display: 1  
+    feeds  :
+    - name : "U.S. Business"
+      url  : "http://online.wsj.com/xml/rss/3_7014.xml"
+    - name : "Management"
+      url  : "http://online.wsj.com/xml/rss/3_7433.xml"
+      
+  - name   : "Technology"      
+    display: 1  
+    feeds  :
+    - name : "Technology What's News"
+      url  : "http://online.wsj.com/xml/rss/3_7455.xml"
+  
+  - name   : "Life & Entertainment"
+    display: 1  
+    feeds  :
+    - name : "Lifestyle"
+      url  : "http://online.wsj.com/xml/rss/3_7201.xml"
+    - name : "On Style"
+      url  : "http://online.wsj.com/xml/rss/3_7336.xml"
+      
+  - name   : "Sports"
+    display: 1  
+    feeds  :
+    - name : "Sports"
+      url  : "http://online.wsj.com/xml/rss/3_7204.xml"
+  
+      
+  - name   : "Columnists"
+    display: 1  
+    feeds  : 
+    - name : "Numbers Guy"
+      url  : "http://online.wsj.com/xml/rss/3_7111.xml"
+    - name : "Numbers Guy Blog"
+      url  : "http://feeds.wsjonline.com/wsj/numbersguy/feed"
+      
+  - name   : "Most Viewed"
+    display: 1  
+    feeds  :
+    - name : "Most Viewed Today"
+      url  : "http://online.wsj.com/xml/rss/3_7198.xml"
+    - name : "Most Viewed This Week"
+      url  :  "http://online.wsj.com/xml/rss/3_7251.xml"
+    
+  - name: "Search"
+    display: 0
