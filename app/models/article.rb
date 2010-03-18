@@ -44,10 +44,11 @@ class Article
       a.update_attributes(:active => true, 
                           :priority => attrs[:priority], 
                           :description => attrs[:description])
+                          
+      a                    
     else
       self.create(attrs)          
-    end
-
+    end    
   end
   
   # Mark the article as having been read
@@ -69,6 +70,10 @@ class Article
     p part
     
     part.strip_html[0..size]    
+  end
+  
+  def deactivate
+    self.update_attributes(:active => false)
   end
   
   

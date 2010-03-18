@@ -16,16 +16,32 @@ class RssFeed
     # Download the RSS feed
     self.doc = get_source
     
+    # Keep track of which articles are in the feed    
+    articles = []
+    
     # For each item in the RSS feed    
-    (self.doc/'item').each_with_index do |item, index|
-      
+    (self.doc/'item').each_with_index do |item, index|      
       # Create or update the article in the db
-      Article.factory(:category => self.category,
-                      :description => (item/'description').inner_html,
-                      :rss_feed => self,
-                      :url => (item/'link').inner_html,
-                      :priority => index,
-                      :active => true)
+      articles << Article.factory(
+                    :category => self.category,
+                    :description => (item/'description').inner_html,
+                    :rss_feed => self,
+                    :url => (item/'link').inner_html,
+                    :priority => index,
+                    :active => true
+                  )
+    end
+    
+    # At this point active_articles includes the articles
+    # that are currently in the source feed, plus any articles 
+    # that were active on the previous import but, obviously 
+    # were not in the feed. It is these active articles that are 
+    # not in the feed that need to be deactivated.
+    active_articles = self.articles(:active => true)
+    
+    active_articles.each do |article|
+      # deactivate the article unless it is in the current feed
+      article.deactivate unless articles.include?(article)
     end
   end
   

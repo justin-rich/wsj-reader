@@ -14,10 +14,6 @@ class Category
   end
   
   def self.update_articles
-    begin
-      repository(:default).adapter.query("UPDATE articles SET active = 0")
-    rescue Exception => e      
-    end
     RssFeed.all.each {|r| r.update_articles}    
   end
   
