@@ -20,7 +20,11 @@ Merb::BootLoader.before_app_loads do
 end
  
 Merb::BootLoader.after_app_loads do
-  # This will get executed after your app's classes have been loaded.
+  # Mobile mime type
+  Merb.add_mime_type(:mobile, :to_html, %w[text/html])
+  
+  ## Sphinx dm-is-searchable config
+  #  This will get executed after your app's classes have been loaded.
   SPHINX = YAML::load(File.open("#{Merb.root}/config/sphinx/sphinx.yml"))
 
   DataMapper.setup(:search, {
@@ -30,9 +34,13 @@ Merb::BootLoader.after_app_loads do
      :port     => SPHINX['port']   # optional. Default: 3312
   })
   
+  
+  ## Email config
+  #  Be sure to setup sendmail properly
   Merb::Mailer.config = { :sendmail_path => '/usr/sbin/sendmail' }
   Merb::Mailer.delivery_method = Merb.testing? ? :test_send : :sendmail
   
+  ## Handy method for removing HTML tags from content
   class String
     def strip_html(allow = [])
       allow_arr = allow.join('\\b|') << '|/'

@@ -13,7 +13,6 @@ class Articles < Application
   end
 
   def show(id)
-    provides :json
     @article = Article.get(id)
     @category = @article.category
     raise NotFound unless @article
