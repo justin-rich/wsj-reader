@@ -3,6 +3,8 @@ merb_gems_version = "1.1"
 dm_gems_version   = "0.9.10"
 do_gems_version   = "0.9.11"
 
+dependency "thor", "0.9.9"
+
 # For more information about each component, please read http://wiki.merbivore.com/faqs/merb_components
 dependency "merb-core", merb_gems_version 
 dependency "merb-action-args", merb_gems_version
