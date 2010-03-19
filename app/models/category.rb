@@ -5,7 +5,7 @@ class Category
   property :name,    String, :length => 255
   property :display, Boolean
   
-  has n, :rss_feeds
+  has n, :feeds
   has n, :articles  
   
   def self.reset
@@ -14,7 +14,7 @@ class Category
   end
   
   def self.update_articles
-    RssFeed.all.each {|r| r.update_articles}    
+    Feed.all.each {|f| f.update_articles}    
   end
   
   def self.load_source_data
@@ -40,7 +40,7 @@ class Category
   end
   
   def top_stories(size = 3)
-    self.articles(:active => true, :order => [ :rss_feed_id, :priority ], :limit => size)
+    self.articles(:active => true, :order => [ :feed_id, :priority ], :limit => size)
   end
   
   def first_article_with_image

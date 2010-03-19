@@ -18,7 +18,7 @@ class Article
   property :created_at,  DateTime
   property :updated_at,  DateTime  
   
-  belongs_to :rss_feed
+  belongs_to :feed
   belongs_to :category
   has 1, :image
   

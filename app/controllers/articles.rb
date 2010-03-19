@@ -4,7 +4,7 @@ class Articles < Application
     @articles = if params[:query].blank?
       @category = Category.first(:id => params[:category_id])
       raise NotFound unless @category
-      @category.articles(:active => true, :order => [ :rss_feed_id, :priority ])
+      @category.articles(:active => true, :order => [ :feed_id, :priority ])
     else
       Article.search(:title => params[:query], :author => params[:query], :fulltext => params[:query])
     end
@@ -34,7 +34,7 @@ class Articles < Application
   
   def find_neighbor_article(offset)
    articles = if params[:query].blank?
-      @category.articles(:active => true, :order => [ :rss_feed_id, :priority ])
+      @category.articles(:active => true, :order => [ :feed_id, :priority ])
     else
       Article.search(:title => params[:query], :author => params[:query], :fulltext => params[:query])
     end
