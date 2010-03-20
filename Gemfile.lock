@@ -1,19 +1,15 @@
 --- 
 specs: 
 - rake: 
-    version: 0.8.4
+    version: 0.8.7
 - ZenTest: 
-    version: 3.11.0
-- rubyforge: 
-    version: 1.0.3
-- hoe: 
-    version: 1.8.2
+    version: 4.2.1
 - RubyInline: 
-    version: 3.8.1
+    version: 3.8.4
 - sexp_processor: 
-    version: 3.0.0
+    version: 3.0.3
 - ParseTree: 
-    version: 3.0.2
+    version: 3.0.4
 - abstract: 
     version: 1.0.0
 - addressable: 
@@ -63,25 +59,27 @@ specs:
 - do_mysql: 
     version: 0.10.1
 - erubis: 
-    version: 2.6.2
+    version: 2.6.5
 - eventmachine: 
     version: 0.12.10
 - highline: 
-    version: 1.4.0
+    version: 1.5.2
 - hpricot: 
     version: 0.6.161
 - mime-types: 
     version: "1.16"
 - mailfactory: 
-    version: 1.2.3
+    version: 1.4.0
 - rack: 
     version: 1.1.0
 - rspec: 
-    version: 1.2.6
+    version: 1.3.0
 - merb-core: 
     version: 1.1.0.pre
+- ruby_parser: 
+    version: 2.0.4
 - ruby2ruby: 
-    version: 1.2.1
+    version: 1.2.4
 - merb-action-args: 
     version: 1.1.0.pre
 - merb-assets: 
@@ -116,9 +114,10 @@ specs:
     version: 1.2.7
 - thor: 
     version: 0.9.9
-hash: f3dd3ead10ce5eaae2f2999806554d304f23498e
-sources: []
-
+hash: 2823b1af8e29f8480d5c708f116a3a2444404b42
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org
 dependencies: 
   merb-gen: 
     version: = 1.0.15

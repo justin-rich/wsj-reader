@@ -1,3 +1,5 @@
+source :gemcutter
+
 # dependencies are generated using a strict version, don't forget to edit the dependency versions when upgrading.
 merb_rc1_gems_version = "1.1.0.rc1"
 merb_pre_gems_version = "1.1.0.pre"
