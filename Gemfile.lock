@@ -114,28 +114,24 @@ specs:
     version: 1.2.7
 - thor: 
     version: 0.9.9
-hash: 2823b1af8e29f8480d5c708f116a3a2444404b42
+hash: 71498688b8d95b0b9bd2b58a101caaf9e4f2d162
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
 dependencies: 
-  merb-gen: 
-    version: = 1.0.15
+  dm-serializer: 
+    version: = 0.10.2
     group: 
     - :default
   merb-helpers: 
     version: = 1.1.0.pre
     group: 
     - :default
-  dm-serializer: 
-    version: = 0.10.2
+  merb-gen: 
+    version: = 1.0.15
     group: 
     - :default
-  merb-colorful-logger: 
-    version: ">= 0"
-    group: 
-    - :default
-  merb-param-protection: 
+  merb-assets: 
     version: = 1.1.0.pre
     group: 
     - :default
@@ -143,47 +139,51 @@ dependencies:
     version: = 0.9.9
     group: 
     - :default
-  merb-assets: 
+  merb-param-protection: 
     version: = 1.1.0.pre
     group: 
     - :default
-  merb-exceptions: 
-    version: = 1.1.0.pre
+  merb-colorful-logger: 
+    version: ">= 0"
     group: 
     - :default
   data_objects: 
     version: = 0.10.1
     group: 
     - :default
-  thin: 
-    version: = 1.2.7
+  merb-exceptions: 
+    version: = 1.1.0.pre
     group: 
     - :default
-  dm-core: 
-    version: = 0.10.2
+  thin: 
+    version: = 1.2.7
     group: 
     - :default
   dm-types: 
     version: = 0.10.2
     group: 
     - :default
-  dm-validations: 
+  dm-core: 
     version: = 0.10.2
-    group: 
-    - :default
-  merb-core: 
-    version: = 1.1.0.pre
     group: 
     - :default
   merb-auth-slice-password: 
     version: = 1.1.0.rc1
     group: 
     - :default
-  dm-is-searchable: 
+  merb-core: 
+    version: = 1.1.0.pre
+    group: 
+    - :default
+  dm-validations: 
     version: = 0.10.2
     group: 
     - :default
   dm-timestamps: 
+    version: = 0.10.2
+    group: 
+    - :default
+  dm-is-searchable: 
     version: = 0.10.2
     group: 
     - :default
@@ -195,24 +195,12 @@ dependencies:
     version: = 0.12.10
     group: 
     - :default
-  merb_datamapper: 
-    version: = 1.1.0.pre
-    group: 
-    - :default
   dm-aggregates: 
     version: = 0.10.2
     group: 
     - :default
-  do_mysql: 
-    version: = 0.10.1
-    group: 
-    - :default
-  merb-cache: 
+  merb_datamapper: 
     version: = 1.1.0.pre
-    group: 
-    - :default
-  dm-sphinx-adapter: 
-    version: = 0.9.0
     group: 
     - :default
   chardet: 
@@ -221,31 +209,47 @@ dependencies:
     - UniversalDetector
     group: 
     - :default
-  merb-action-args: 
+  dm-sphinx-adapter: 
+    version: = 0.9.0
+    group: 
+    - :default
+  merb-cache: 
     version: = 1.1.0.pre
     group: 
     - :default
-  merb-mailer: 
-    version: = 1.1.0.rc1
+  do_mysql: 
+    version: = 0.10.1
     group: 
     - :default
-  merb-auth-core: 
-    version: = 1.1.0.rc1
-    group: 
-    - :default
-  dm-migrations: 
-    version: = 0.10.2
+  merb-action-args: 
+    version: = 1.1.0.pre
     group: 
     - :default
   hpricot: 
     version: = 0.6.161
     group: 
     - :default
-  merb-auth-more: 
+  dm-migrations: 
+    version: = 0.10.2
+    group: 
+    - :default
+  merb-auth-core: 
     version: = 1.1.0.rc1
+    group: 
+    - :default
+  merb-mailer: 
+    version: = 1.1.0.rc1
+    group: 
+    - :default
+  bundler: 
+    version: = 0.9.12
     group: 
     - :default
   merb-slices: 
     version: = 1.1.0.pre
+    group: 
+    - :default
+  merb-auth-more: 
+    version: = 1.1.0.rc1
     group: 
     - :default

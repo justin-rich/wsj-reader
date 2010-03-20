@@ -41,6 +41,7 @@ gem "hpricot", "0.6.161"
 gem 'merb-colorful-logger'
 gem "chardet", :require => "UniversalDetector"
 
+gem "bundler", "0.9.12"
 gem "thin", "1.2.7"
 gem "rack", "1.1.0"
 gem "eventmachine", "0.12.10"
