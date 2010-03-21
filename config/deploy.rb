@@ -57,7 +57,7 @@ end
 namespace :deploy do
   desc "Restart"
   task :restart do
-    run "cd #{deploy_to}/current; touch tmp/restart.txt"
+    #run "cd #{deploy_to}/current; touch tmp/restart.txt"
   end
   
   desc "Start"
@@ -78,6 +78,6 @@ task :after_update_code do
   run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
   run "ln -nfs #{deploy_to}/#{shared_dir}/config/sphinx.yml #{release_path}/config/sphinx/sphinx.yml"
   
-  # run "cd #{release_path}; thor merb:gem:redeploy"
   #run "cd #{release_path}; indexer --all --rotate"
+
 end

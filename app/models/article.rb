@@ -22,7 +22,7 @@ class Article
   belongs_to :category
   has 1, :image
   
-  after  :create, :import
+  before  :create, :import
   before :destroy, :destroy_image
   
   is :searchable
@@ -95,7 +95,7 @@ class Article
   # the database
   
   def import    
-    self.update(scrape_info({}))
+    self.attributes = scrape_info(self.attributes)
   end
   
   def scrape_info(default_attrs)
