@@ -38,7 +38,7 @@ class RssFeeds < Application
   def update(id, rss_feed)
     @rss_feed = RssFeed.get(id)
     raise NotFound unless @rss_feed
-    if @rss_feed.update_attributes(rss_feed)
+    if @rss_feed.update(rss_feed)
        redirect resource(@rss_feed)
     else
       display @rss_feed, :edit

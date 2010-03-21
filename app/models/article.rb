@@ -53,9 +53,9 @@ class Article
     
     if a
       if a.image.nil? && a.attempts < 2
-        a.update_attributes(a.scrape_info(attrs))
+        a.update(a.scrape_info(attrs))
       else
-        a.update_attributes(attrs)
+        a.update(attrs)
       end
                  
       a                    
@@ -66,7 +66,7 @@ class Article
   
   # Mark the article as having been read
   def mark_as_read
-    self.update_attributes(:unread => false)
+    self.update(:unread => false)
   end
   
   def desc(size=255)
@@ -86,7 +86,7 @@ class Article
   end
   
   def deactivate
-    self.update_attributes(:active => false)
+    self.update(:active => false)
   end
   
   
@@ -95,7 +95,7 @@ class Article
   # the database
   
   def import    
-    self.update_attributes(scrape_info({}))
+    self.update(scrape_info({}))
   end
   
   def scrape_info(default_attrs)

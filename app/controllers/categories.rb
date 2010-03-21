@@ -38,7 +38,7 @@ class Categories < Application
   def update(id, category)
     @category = Category.get(id)
     raise NotFound unless @category
-    if @category.update_attributes(category)
+    if @category.update(category)
        redirect resource(@category)
     else
       display @category, :edit
