@@ -20,5 +20,6 @@ gems/gems/*
 gems/specifications/*
 merb_profile_results
 config/sphinx/sphinx.yml
+config/wsj/cookies.txt
 indices/*
 doc/features.txt
