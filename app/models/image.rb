@@ -6,7 +6,6 @@ class Image
   property :caption, Text
 
   belongs_to :article
-  belongs_to :category
   
   # after :create, :save_category
   
@@ -22,4 +21,7 @@ class Image
     self.url.gsub(/_[A-Z]_/, "_G_")
   end
     
+  def method_name
+    
+  end
 end

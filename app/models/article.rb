@@ -22,7 +22,6 @@ class Article
   belongs_to :category
   has 1, :image
   
-  before  :create, :import
   before :destroy, :destroy_image
   
   is :searchable
@@ -51,17 +50,23 @@ class Article
     
     attrs = attrs.merge(default_attrs)
     
-    if a
-      if a.image.nil? && a.attempts < 2
-        a.update(a.scrape_info(attrs))
-      else
-        a.update(attrs)
+    if a # If the article already exists
+      # Scrape an article 2 additional times looking for images
+      if a.image.nil? && a.attempts < 2 
+        a.import(attrs)
+      else # After the 2 attempts, just start updating the article as active
+        a.attributes = attrs
       end
                  
-      a                    
-    else
-      self.create(attrs)          
+      a.save
+      a
+    else # Otherwise, create a new article
+      a = self.new(attrs)      
+      a.import(attrs)
+      a.save
+      a
     end    
+    
   end
   
   # Mark the article as having been read
@@ -80,8 +85,6 @@ class Article
       parts[0]
     end
     
-    p part
-    
     part.strip_html[0..size]    
   end
   
@@ -94,8 +97,8 @@ class Article
   # the article's URL, and will save the Article's attributes to 
   # the database
   
-  def import    
-    self.attributes = scrape_info(self.attributes)
+  def import(default_attrs)
+    self.attributes = scrape_info(default_attrs)
   end
   
   def scrape_info(default_attrs)
