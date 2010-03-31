@@ -24,7 +24,14 @@ class Category
       next unless category["feeds"]
       
       category["feeds"].each do |feed|
-        RssFeed.create(:name => feed["name"], :url => feed["url"], :category => c)
+        attrs = {:name => feed["name"], :url => feed["url"], :category => c}
+        
+        case feed["type"]
+        when "FeedPageOne"                
+          FeedPageOne.create(attrs)
+        else
+          RssFeed.create(attrs)          
+        end
       end
     end    
   end

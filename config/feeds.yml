@@ -1,29 +1,15 @@
   - name   : "Today's Paper"
-    display: 0
-    feeds  :
-    - name : "Today's Paper"
-      url  : "http://online.wsj.com/xml/rss/3_7084.xml"
-      
-  - name  : "Today's Newspaper"
-    display: 0
+    display: 1  
     feeds  :
     - name : "Page One"
-      url  : "http://online.wsj.com/xml/rss/3_7205.xml"
-    - name : "Marketplace"
-      url  : "http://online.wsj.com/xml/rss/3_7206.xml"
-    - name : "Money & Investing"
-      url  : "http://online.wsj.com/xml/rss/3_7207.xml"
-    - name : "Personal Journal"
-      url  : "http://online.wsj.com/xml/rss/3_7208.xml"
-    - name : "Weekend Journal"
-      url  : "http://online.wsj.com/xml/rss/3_7209.xml"
-  
-  
+      url  : "http://online.wsj.com/page/us_in_todays_paper.html"
+      type : "FeedPageOne"
+      
   - name   : "What's News"
     display: 0
     feeds  :
     - name : "What's News"
-    - url  : "http://online.wsj.com/xml/rss/3_7011.xml"
+      url  : "http://online.wsj.com/xml/rss/3_7011.xml"
         
   - name   : "Investing"
     display: 1

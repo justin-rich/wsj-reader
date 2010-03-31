@@ -2,7 +2,7 @@ class RssFeed < Feed
   def get_source
     self.doc = begin
       Article.login
-      Hpricot::XML(`curl -s -c #{Merb.root}/wsj/cookies.txt "#{self.url}"`)
+      Hpricot::XML(`curl -s -b #{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
     rescue Exception => e
       p "There was a problem downloading the RSS feed"
       Hpricot::XML('')
