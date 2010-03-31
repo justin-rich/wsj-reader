@@ -38,6 +38,7 @@ gem "dm-sphinx-adapter", "0.9.0"
 gem "merb_datamapper", merb_pre_gems_version
 
 gem "hpricot", "0.6.161"
+gem "nokogiri", "1.0.6"
 gem 'merb-colorful-logger'
 gem "chardet", :require => "UniversalDetector"
 
