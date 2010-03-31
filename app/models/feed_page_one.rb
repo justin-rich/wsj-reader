@@ -1,11 +1,11 @@
-class RssFeed < Feed    
+class FeedPageOne < Feed  
   def get_source
     self.doc = begin
       Article.login
-      Hpricot::XML(`curl -s -c #{Merb.root}/wsj/cookies.txt "#{self.url}"`)
+      Hpricot(`curl -s -b #{Merb.root}/config/wsj/cookies.txt "http://online.wsj.com/page/us_in_todays_paper.html"`)
     rescue Exception => e
       p "There was a problem downloading the RSS feed"
-      Hpricot::XML('')
+      Hpricot('')
     end
   end
   
@@ -16,14 +16,16 @@ class RssFeed < Feed
     # Keep track of which articles are in the feed    
     articles = []
     
-    # For each item in the RSS feed    
-    (self.doc/'item').each_with_index do |item, index|      
+    xpath = (self.doc/'//html/body/table/tr/td[2]/table/tr[3]/td/table/tr[9]/td/table/tr[4]/td')[0]
+    
+    # For each item in the RSS feed        
+    (xpath/'a.bold80').each_with_index do |link, index|
       # Create or update the article in the db
       articles << Article.factory(
                     :category => self.category,
-                    :description => (item/'description').inner_html,
+                    :description => '',
                     :feed => self,
-                    :url => (item/'link').inner_html,
+                    :url => "http://online.wsj.com#{link.attributes['href']}",
                     :priority => index
                   )
     end

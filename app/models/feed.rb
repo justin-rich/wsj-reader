@@ -37,13 +37,7 @@ class Feed
   # Uses cookie authentication to download the source
   # RSS feeds
   def get_source
-    self.doc = begin
-      Article.login
-      Hpricot::XML(`curl -s -c #{Merb.root}/wsj/cookies.txt "#{self.url}"`)
-    rescue Exception => e
-      p "There was a problem downloading the RSS feed"
-      Hpricot::XML('')
-    end
+    raise NotImplemented
   end
   
   # Base a feed's priority on the time it was created

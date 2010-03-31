@@ -75,17 +75,19 @@ class Article
   end
   
   def desc(size=255)
-    return '' if description.blank?
-    
-    parts = self.description.split("<br />")
-    
-    part = if parts.size > 1
-      parts[1]
-    else
-      parts[0]
-    end
-    
-    part.strip_html[0..size]    
+    unless description.blank?
+      parts = self.description.split("<br />")
+
+      part = if parts.size > 1
+        parts[1]
+      else
+        parts[0]
+      end
+
+      part.strip_html[0..size]   
+    else            
+      self.fulltext.strip_html[0..size] + "..."
+    end    
   end
   
   def deactivate
@@ -119,9 +121,14 @@ class Article
   def get_html
     begin
       Article.login
-      Hpricot(`curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
+      time1 = Time.now
+      p "Downloading #{url}"
+      html = Hpricot(`curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
+      p "Took #{Time.now-time1} seconds"
+      html
     rescue Exception => e
       p "There was a problem downloading the article"
+      Hpricot('')
     end
   end
   
