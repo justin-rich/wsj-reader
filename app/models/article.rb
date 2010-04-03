@@ -184,7 +184,7 @@ class Article
     (tmpdoc/'div').remove
     (tmpdoc/'h3').remove    
     tmpdoc.search('p').inject('') do |paragraphs, paragraph|
-      paragraphs << paragraph.to_html
+      paragraphs << paragraph.to_html.transliterate
     end
   end
   

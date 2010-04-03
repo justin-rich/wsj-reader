@@ -20,6 +20,8 @@ Merb::BootLoader.before_app_loads do
 end
  
 Merb::BootLoader.after_app_loads do
+  require 'iconv'
+  
   # Mobile mime type
   Merb.add_mime_type(:mobile, :to_html, %w[text/html])
   
@@ -46,6 +48,10 @@ Merb::BootLoader.after_app_loads do
       allow_arr = allow.join('\\b|') << '|/'
       tag_pat = %r,<(?:(?:/?)|(?:\s*)).*?>,
       self.gsub(tag_pat, '').strip
-    end    
+    end  
+    
+    def transliterate
+      Iconv.iconv('ascii//ignore//translit', 'utf-8', self).to_s      
+    end  
   end
 end
