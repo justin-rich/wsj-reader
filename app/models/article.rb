@@ -84,10 +84,22 @@ class Article
         parts[0]
       end
 
-      part.strip_html[0..size]   
+      part.strip_html[0..size] + "..."
     else            
       self.fulltext.strip_html[0..size] + "..."
     end    
+  end
+  
+  def short_version(size=3000)
+    parts = self.fulltext.split("</p>")
+    
+    parts.inject('') do |shortv, part|
+      unless shortv.size + part.size >= 3000
+        shortv << "#{part}</p>"
+      else
+        shortv
+      end
+    end
   end
   
   def deactivate
@@ -119,17 +131,20 @@ class Article
   end
   
   def get_html
-    begin
-      Article.login
-      time1 = Time.now
-      p "Downloading #{url}"
-      html = Hpricot(`curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
-      p "Took #{Time.now-time1} seconds"
-      html
-    rescue Exception => e
-      p "There was a problem downloading the article"
-      Hpricot('')
-    end
+    5.times do      
+      begin
+        Article.login
+        time1 = Time.now
+        p "Downloading #{url}"
+        html = Hpricot(`curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
+        p "Took #{Time.now-time1} seconds"
+        return html
+      rescue Exception => e
+        p "There was a problem downloading the article"
+        next
+      end
+    end  
+    Hpricot('') # If all else fails, return an empty doc
   end
   
   def get_title

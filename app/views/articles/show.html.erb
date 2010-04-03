@@ -6,8 +6,7 @@
   <%= partial "shared/categories" %>  
   <%= partial "shared/search" %>
   
-  <h3><%= @category.name %></h3>
-  
+  <h3><%= @category.name %></h3>  
 </div>
 
 
@@ -25,7 +24,7 @@
     </div>  
   <% end %>
 
-  <div id="fulltext">
+  <div id="fulltext" class="four_column">
     <% unless @article.subtitle.nil? || @article.author.empty? %>
       <div class="byline"><%= @article.author %></div> 
     <% end %>

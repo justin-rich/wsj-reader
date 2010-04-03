@@ -24,7 +24,6 @@ body {
 }
 
 img {
-	border:1px solid black;
 	text-align:center;
 }
 
@@ -51,6 +50,19 @@ div.dateline {
 .center {
 	position:relative;
 	float:center;
+	left:35%;
+}
+
+.three_column {
+	-moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+}
+
+.four_column {
+	-moz-column-count: 4;
+  -webkit-column-count: 4;
+  column-count: 4;
 }
 
 span#index {
@@ -65,13 +77,20 @@ span#date {
 .border {
 	height:0.1em;
 	clear:both;
-	border-bottom:1px solid #333333;
+	border-bottom:1px solid #DEDEDE;
 	margin-bottom:2px;
+}
+
+.bottom_border {
+	border-width:95%;
+	border-bottom:1px solid #DEDEDE;
+	padding-bottom:1em;
 }
 
 .category {
 	border-top:1px #333333 solid;
 	border-bottom:1px #333333 solid;
+	margin-bottom:1em;
 }
 
 .category h3 {
@@ -87,77 +106,65 @@ span#date {
 
 /* Home page*/
 
-ul.categories {
-	list-style-type: none;
-	-moz-column-count: 3;
-  -webkit-column-count: 3;
-  column-count: 3;
-	text-align:center;
-}
-
-.categories li {
-	list-style: none outside none;
-	min-height:100px;
-	padding:0em;
-	margin:0em;
-	border-top:1px solid #333333;
-	border-bottom:1px solid #333333;	
-}
-
-.categories img {
-	float:right;
-	margin-left:1em;
-	vertical-align:top;
-}
-
-.categories h2 a:link, .categories h2 a:visited, .categories h2 a:active{
-	font-family: Arial,sans-serif;
-	font-size:65%;
-	color:#333333;
-	outline:medium none;	
-	background-image: url("http://s3.wsj.net/img/global_dotted_arrow.gif");
-	background-position: center right;
-	background-repeat: no-repeat;
-}
-
-.categories h3 a:link, .categories h3 a:visited, .categories h3 a:active{
-	color:#093D72;
-}
-
-.categories p {
-	text-align:center;
-	margin-top:1em;
-	margin-bottom:1em;	
-	font: italic 1.0em/1.0 Georgia,"Century Schoolbook","Times New Roman",Times,serif;
-	font-size:110%;
-}
-
-.categories a:link, .categories a:visited, .categories a:active {
-	color:#333333;
-}
-
-.categories p.top_half_border{
-	border-top:1px solid #333333;
+div#whats_news {
+	background-color:#F4F1E9;	
 	width:25%;
+	margin-right:0.5em;
+}
+
+div#whats_news a, div#whats_news a:active, div#whats_news a:visited {
+	color:#000000;
+}
+
+div#whats_news_head {
+	color:#093D72;
+	text-align:center;
+	font-size:200%;
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-right:1px solid black;	
+	padding:0.5em;
+	margin-top:0.5em;
+}
+
+ul#whats_news_articles {
+	list-style-type:none;
+	-moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
+}
+
+ul#whats_news_articles li {
+	margin-bottom:1em;
+	width:98%;
+}
+
+div#whats_news_inset {
+	width:90%;
 	margin:0 auto;
 }
 
-.categories .top_stories {
-	margin:1em auto;
-	width:75%;
-	text-align:center;
+div#picture {
 }
 
+div#center_rail {
+	width:55%;
+	margin-left:1em;
+}
+
+div#right_rail {
+	width:15%;
+	border-left:1px solid #DEDEDE;
+	padding-left:1.5em;
+}
+
+div#top_story {
+	top:0%;
+}
 /* Category detail page*/
 
 ul.articles {
 	list-style-type: none;
-}
-
-ul.three_column {
-	-moz-column-count: 3;
-  -webkit-column-count: 3;
-  column-count: 3;
 }
 
 ul.stacked li {
@@ -217,14 +224,23 @@ ul.stacked li {
 
 .article div#fulltext {
 	padding-top: 2em;
-  -moz-column-count: 4;
-  -webkit-column-count: 4;
-  column-count: 4;
+
 }
 
 .article div#fulltext p {
 	text-indent: 1em;
 	font-size:110%;
+}
+
+.article p.continue {
+	font:  italic 1.6em/1.1 Georgia,"Century Schoolbook","Times New Roman",Times,serif;
+	text-align:right;
+	margin-right:1em;
+	margin-top:1em;
+}
+
+.article p.continue a, .article p.continue a:visited, .article p.continue a:active {
+	color:#333333;
 }
 
 /* Help menu */
