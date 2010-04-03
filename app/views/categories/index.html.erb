@@ -1,6 +1,5 @@
 <% @title = "Home" %>
 
-
 <%= partial "shared/header" %>
 
 <div class="category">
@@ -9,26 +8,100 @@
   <h3>The Wall Street Journal</h3>  
 </div>
 
-<ul class="categories">
-<% @categories.each do |category| %>
-  <li>  
-    <h2>
-      <%= link_to category.name, "/categories/#{category.id}/articles" %>
-    </h2>
-    
-    <div class="top_stories">      
-      <% category.top_stories.each_with_index do |article,index| %>
-        <% unless index == 0 %>
-          <p class="top_half_border"></p>
-        <% end %>
-        
-        <p><%= link_to article.title, "/articles/#{article.id}" %></p>
-      <% end %>
-    </div>    
-  </li>
-<% end %>
-</ul>
+<div id="whats_news" class="left">
+  <div id="whats_news_inset">
+    <div id="whats_news_head">
+      What&apos;s News&mdash;
+    </div>
+  
+    <ul id="whats_news_articles">
+      <% whats_news = Category.first(:name => "What's News") %>
 
+      <% whats_news.top_stories(22).each do |article| %>
+        <li><%= whats_news_print(article) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div id="center_rail" class="left">
+  <div id="top_story" class="article bottom_border">
+    <% article = Category.first(:name => "Today's Paper").top_story %>    
+    
+    <h1><%= article.title %></h1>
+        
+    <% unless article.subtitle.nil? || article.subtitle.empty? %>
+      <h2><%= article.subtitle %></h2>
+    <% end %>
+
+    <div id="fulltext" class="three_column">
+      <% unless article.subtitle.nil? || article.author.empty? %>
+        <div class="byline"><%= article.author %></div> 
+      <% end %>
+      
+      <%= article.short_version %>
+      <p class="continue"><%= link_to "Continue reading", resource(article) %></p>
+      
+    </div>
+  </div>
+  
+  <div id="top_story" class="article bottom_border">
+    <% article = Category.first(:name => "Today's Paper").top_stories(2)[3] %>    
+    
+    <h1><%= article.title %></h1>
+
+    <% unless article.subtitle.nil? || article.subtitle.empty? %>
+      <h2><%= article.subtitle %></h2>
+    <% end %>
+    
+    <div id="fulltext" class="three_column">
+      <% unless article.subtitle.nil? || article.author.empty? %>
+        <div class="byline"><%= article.author %></div> 
+      <% end %>
+      
+      <%= article.short_version %>
+      <p class="continue"><%= link_to "Continue reading", resource(article) %></p>
+    </div>
+  </div>
+  
+  <div id="top_story" class="article bottom_border">
+    <% article = Category.first(:name => "Today's Paper").top_stories(2)[5] %>    
+    
+    <h1><%= article.title %></h1>
+
+    <% unless article.subtitle.nil? || article.subtitle.empty? %>
+      <h2><%= article.subtitle %></h2>
+    <% end %>
+    
+    <div id="fulltext" class="three_column">
+      <% unless article.subtitle.nil? || article.author.empty? %>
+        <div class="byline"><%= article.author %></div> 
+      <% end %>
+      
+      <%= article.short_version %>
+      <p class="continue"><%= link_to "Continue reading", resource(article) %></p>
+    </div>
+  </div>
+</div>
+
+<div id="right_rail" class="right">
+  <div id="top_story" class="article bottom_border">
+    <% article = Category.first(:name => "Today's Paper").top_stories(2)[4] %>    
+    
+    <h1><%= article.title %></h1>
+    
+    <div id="fulltext" class="one_column">
+      <% unless article.subtitle.nil? || article.author.empty? %>
+        <div class="byline"><%= article.author %></div> 
+      <% end %>
+      
+      <%= article.short_version %>
+      <p class="continue"><%= link_to "Continue reading", resource(article) %></p>      
+    </div>
+  </div>
+</div>
+
+<br clear="all"/>
 
 <script type="text/javascript" charset="utf-8">
   

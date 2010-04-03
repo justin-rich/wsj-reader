@@ -20,8 +20,4 @@ class Image
   def fullsize
     self.url.gsub(/_[A-Z]_/, "_G_")
   end
-    
-  def method_name
-    
-  end
 end
