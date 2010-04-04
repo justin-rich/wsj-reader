@@ -29,6 +29,10 @@ class Category
         case feed["type"]
         when "FeedPageOne"                
           FeedPageOne.create(attrs)
+        when "FeedOpinion"
+          FeedOpinion.create(attrs)
+        when "FeedMoneyInvesting"
+          FeedMoneyInvesting.create(attrs)                    
         else
           RssFeed.create(attrs)          
         end

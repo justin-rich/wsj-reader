@@ -4,10 +4,14 @@ class Image
   property :id,      Serial
   property :url,     String, :length => 255
   property :caption, Text
-
+  property :active,  Boolean
+  
   belongs_to :article
   
   # after :create, :save_category
+  def deactivate
+    self.update(:active => false)
+  end
   
   def thumbnail
     self.url.gsub!(/_[A-Z]_/, "_A_")

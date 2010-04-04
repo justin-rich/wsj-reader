@@ -21,6 +21,7 @@ end
  
 Merb::BootLoader.after_app_loads do
   require 'iconv'
+  require 'timeout'  
   
   # Mobile mime type
   Merb.add_mime_type(:mobile, :to_html, %w[text/html])

@@ -30,20 +30,16 @@ class Feed
     
     active_articles.each do |article|
       # deactivate the article unless it is in the current feed
-      article.deactivate unless current_articles.include?(article)
+      unless current_articles.include?(article)
+        article.deactivate 
+        article.image.deactivate unless article.image.nil?
+      end
     end
   end
-  
-  # Uses cookie authentication to download the source
-  # RSS feeds
+  # @abstract Subclass and override {#get_source} to implement a custom class for importing articles.
+  #
+  # @return
   def get_source
     raise NotImplemented
-  end
-  
-  # Base a feed's priority on the time it was created
-  # Consider expanding this to a db column if necessary 
-  # to add feeds asynchonously
-  def priority
-    id
   end
 end

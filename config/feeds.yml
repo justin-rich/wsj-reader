@@ -5,50 +5,26 @@
       url  : "http://online.wsj.com/page/us_in_todays_paper.html"
       type : "FeedPageOne"
       
+  - name   : "Opinion"
+    display: 1  
+    feeds  :
+    - name : "Opinion"
+      url  : "http://online.wsj.com/page/us_in_todays_paper.html"
+      type : "FeedOpinion"
+      
+  - name   : "Money & Investing"
+    display: 1  
+    feeds  :
+    - name : "Money & Investing"
+      url  : "http://online.wsj.com/page/us_in_todays_paper.html"
+      type : "FeedMoneyInvesting"        
+      
   - name   : "What's News"
     display: 0
     feeds  :
     - name : "What's News"
       url  : "http://online.wsj.com/xml/rss/3_7011.xml"
         
-  - name   : "Investing"
-    display: 1
-    feeds  :
-    - name : "Investing"
-      url  : "http://online.wsj.com/xml/rss/3_7425.xml"
-        
-  - name   : "Personal Finance"
-    display: 1  
-    feeds  :
-    - name : "Personal Finance"
-      url  : "http://online.wsj.com/xml/rss/3_7104.xml"
-    - name : "Insurance"
-      url  : "http://online.wsj.com/xml/rss/3_7424.xml"
-    - name : "Retirement Planning"
-      url  : "http://online.wsj.com/xml/rss/3_7427.xml"
-    - name : "Taxes"
-      url  : "http://online.wsj.com/xml/rss/3_7428.xml"
-      
-  - name   : "World"
-    display: 1  
-    feeds  :
-    - name : "World"
-      url  : "http://online.wsj.com/xml/rss/3_7085.xml"
-  
-  - name   : "Business"
-    display: 1  
-    feeds  :
-    - name : "U.S. Business"
-      url  : "http://online.wsj.com/xml/rss/3_7014.xml"
-    - name : "Management"
-      url  : "http://online.wsj.com/xml/rss/3_7433.xml"
-      
-  - name   : "Technology"      
-    display: 1  
-    feeds  :
-    - name : "Technology What's News"
-      url  : "http://online.wsj.com/xml/rss/3_7455.xml"
-  
   - name   : "Life & Entertainment"
     display: 1  
     feeds  :
@@ -61,8 +37,7 @@
     display: 1  
     feeds  :
     - name : "Sports"
-      url  : "http://online.wsj.com/xml/rss/3_7204.xml"
-  
+      url  : "http://online.wsj.com/xml/rss/3_7493.xml"
       
   - name   : "Columnists"
     display: 1  

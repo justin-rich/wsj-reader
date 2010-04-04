@@ -52,7 +52,7 @@ class Article
     
     if a # If the article already exists
       # Scrape an article 2 additional times looking for images
-      if a.image.nil? && a.attempts < 2 
+      if a.fulltext.blank? && a.attempts < 2 
         a.import(attrs)
       else # After the 2 attempts, just start updating the article as active
         a.attributes = attrs
@@ -94,7 +94,7 @@ class Article
     parts = self.fulltext.split("</p>")
     
     parts.inject('') do |shortv, part|
-      unless shortv.size + part.size >= 3000
+      unless shortv.size + part.size >= size
         shortv << "#{part}</p>"
       else
         shortv
@@ -111,7 +111,7 @@ class Article
   # the article's URL, and will save the Article's attributes to 
   # the database
   
-  def import(default_attrs)
+  def import(default_attrs = {})
     self.attributes = scrape_info(default_attrs)
   end
   
@@ -134,17 +134,20 @@ class Article
     5.times do      
       begin
         Article.login
-        time1 = Time.now
         p "Downloading #{url}"
-        html = Hpricot(`curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
-        p "Took #{Time.now-time1} seconds"
-        return html
+        timeout(20) do
+          time1 = Time.now                  
+          html = Hpricot(`curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)          
+          p "Took #{Time.now-time1} seconds"
+          return html
+        end
       rescue Exception => e
         p "There was a problem downloading the article"
+        p e
         next
       end
     end  
-    Hpricot('') # If all else fails, return an empty doc
+    
   end
   
   def get_title
@@ -192,12 +195,17 @@ class Article
     unless (img = (self.doc/'div.articlePage').at("img")).nil?
       self.image = Image.new(:url => img.attributes["src"], 
                      :caption => (self.doc/'p.targetCaption').inner_html,
-                     :article => self)
+                     :article => self,
+                     :active  => true)
     else
       nil
     end
   end
   
+  # Consolidates multipe white space characters into one
+  #
+  # @param [String, #gsub] str the string to manipulate
+  # @return [String] with no more than one white space character consecutively
   def clean(str)
     str.gsub(/\s+/, ' ').strip
   end

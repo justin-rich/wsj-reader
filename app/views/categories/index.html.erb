@@ -21,10 +21,48 @@
         <li><%= whats_news_print(article) %></li>
       <% end %>
     </ul>
+    
+    <div id="more_sections_head">
+      More Coverage&mdash;
+    </div>
+    
+    <ul id="more_sections">
+      <li>
+        <div class="section_head bold">
+          Opinion
+        </div>
+        
+        <% opinion = Category.first(:name => "Opinion") %>
+
+        <% opinion.top_stories(10).each do |article| %>
+          <li><%= whats_news_print(article) %></li>
+        <% end %>      
+      <li>
+        <div class="section_head bold">
+          Market & Investing        
+        </div>
+        
+        <% money_investing = Category.first(:name => "Money & Investing") %>
+
+        <% money_investing.top_stories(10).each do |article| %>
+          <li><%= whats_news_print(article) %></li>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>
 
 <div id="center_rail" class="left">
+  
+  <div id="picture" class="bottom_border">
+    <% image = Image.first(:active => true, :offset => rand(1+Image.count))  %>
+    <div class="title">
+      <%= image.article.title %>
+    </div>
+    <img src="<%= image.fullsize %>">
+    <div class="caption"><%= image.caption %></div>
+  </div>
+  
   <div id="top_story" class="article bottom_border">
     <% article = Category.first(:name => "Today's Paper").top_story %>    
     
@@ -95,7 +133,7 @@
         <div class="byline"><%= article.author %></div> 
       <% end %>
       
-      <%= article.short_version %>
+      <%= article.short_version(3675) %>
       <p class="continue"><%= link_to "Continue reading", resource(article) %></p>      
     </div>
   </div>
