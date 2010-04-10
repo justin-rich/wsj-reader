@@ -17,8 +17,14 @@
     <ul id="whats_news_articles">
       <% whats_news = Category.first(:name => "What's News") %>
 
-      <% whats_news.top_stories(22).each do |article| %>
-        <li><%= whats_news_print(article) %></li>
+      <% whats_news.top_stories(22).each_with_index do |article, index| %>        
+        <li>
+          <% if index == 0 %>
+            <%= whats_news_print(article, true) %>
+          <% else %>
+            <%= whats_news_print(article) %>          
+          <% end %>
+        </li>
       <% end %>
     </ul>
     
@@ -28,21 +34,21 @@
     
     <ul id="more_sections">
       <li>
-        <div class="section_head bold">
-          Opinion
-        </div>
-        
         <% opinion = Category.first(:name => "Opinion") %>
+        
+        <div class="section_head bold">
+          <%= link_to opinion.name, "/categories/#{opinion.id}/articles" %>
+        </div>        
 
         <% opinion.top_stories(10).each do |article| %>
           <li><%= whats_news_print(article) %></li>
         <% end %>      
       <li>
-        <div class="section_head bold">
-          Market & Investing        
-        </div>
-        
         <% money_investing = Category.first(:name => "Money & Investing") %>
+        
+        <div class="section_head bold">
+          <%= link_to money_investing.name, "/categories/#{money_investing.id}/articles" %>
+        </div>        
 
         <% money_investing.top_stories(10).each do |article| %>
           <li><%= whats_news_print(article) %></li>
@@ -57,7 +63,7 @@
   <div id="picture" class="bottom_border">
     <% image = Image.first(:active => true, :offset => rand(1+Image.count))  %>
     <div class="title">
-      <%= image.article.title %>
+      <%= link_to image.article.title, resource(image.article) %>
     </div>
     <img src="<%= image.fullsize %>">
     <div class="caption"><%= image.caption %></div>

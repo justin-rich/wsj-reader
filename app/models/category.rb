@@ -14,7 +14,7 @@ class Category
   end
   
   def self.update_articles
-    Feed.all.each {|f| f.update_articles}    
+    Feed.all.each {|f| f.update_articles; sleep 60}    
   end
   
   def self.load_source_data

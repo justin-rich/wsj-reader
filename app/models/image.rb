@@ -5,6 +5,8 @@ class Image
   property :url,     String, :length => 255
   property :caption, Text
   property :active,  Boolean
+  property :created_at,  DateTime
+  property :updated_at,  DateTime
   
   belongs_to :article
   

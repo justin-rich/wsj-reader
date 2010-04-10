@@ -6,7 +6,7 @@
         </span>        
       <% end %>
     <span id="date">
-      <% if @date && Time.parse(@date) %>
+      <% if @article && Time.parse(@article.pub_date) %>
         <%= Time.parse(@article.pub_date).strftime("%A %B %d, %Y") %>      
       <% else %>
         <%= Time.now.strftime("%A %B %d, %Y") %>      

@@ -152,6 +152,12 @@ ul#whats_news_articles li {
 	width:98%;
 }
 
+ul#whats_news_articles li .capital {
+	font:2.5em/0.9em Georgia,"Century Schoolbook","Times New Roman",Times,serif;;
+	margin-right:0.07em;
+	float:left;
+}
+
 div#whats_news_inset {
 	width:90%;
 	margin:0 auto;
@@ -175,6 +181,10 @@ ul#more_sections div.section_head {
 	border-bottom:1px solid black;
 }
 
+ul#more_sections li {
+	margin-bottom:0.5em;
+}
+
 div#center_rail {
 	width:50%;
 	margin-left:1em;
@@ -184,6 +194,10 @@ div#right_rail {
 	width:15%;
 	border-left:1px solid #DEDEDE;
 	padding-left:1.5em;
+}
+
+div#picture a, div#picture a:active, div#picture a:visited {
+	color:black;
 }
 
 div#picture .title {

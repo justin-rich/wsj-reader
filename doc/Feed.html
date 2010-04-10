@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Feed</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (F)</a> &raquo; 
+    
+    
+    <span class="title">Feed</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Feed 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Feed</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">DataMapper::Resource</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/models/feed.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><a href="HtmlFeed.html" title="HtmlFeed (class)">HtmlFeed</a>, <a href="RssFeed.html" title="RssFeed (class)">RssFeed</a></p>
+</div>
+
+
+  
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#doc-instance_method" title="#doc (instance method)">- (Object) <strong>doc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+tmp variable to hold source xml during updates.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deactivate_old_articles-instance_method" title="#deactivate_old_articles (instance method)">- (Object) <strong>deactivate_old_articles</strong>(current_articles) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Deactivate articles that are active, but are not in the feed (aka old
+articles).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_source-instance_method" title="#get_source (instance method)">- (Object) <strong>get_source</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="abstract note title">Abstract</span>
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_articles-instance_method" title="#update_articles (instance method)">- (Object) <strong>update_articles</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Download active articles, deactive old articles.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="doc=-instance_method"></span>
+      <span id="doc-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="doc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>doc</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+tmp variable to hold source xml during updates
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2
+3
+4</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 2</span>
+
+<span class='def def kw'>def</span> <span class='doc identifier id'>doc</span>
+  <span class='@doc ivar id'>@doc</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="deactivate_old_articles-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deactivate_old_articles</strong>(current_articles) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Deactivate articles that are active, but are not in the feed (aka old
+articles)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 23</span>
+
+<span class='def def kw'>def</span> <span class='deactivate_old_articles identifier id'>deactivate_old_articles</span><span class='lparen token'>(</span><span class='current_articles identifier id'>current_articles</span><span class='rparen token'>)</span>
+  <span class='comment val'># At this point active_articles includes the articles</span>
+  <span class='comment val'># that are currently in the source feed, plus any articles </span>
+  <span class='comment val'># that were active on the previous import but, obviously </span>
+  <span class='comment val'># were not in the feed. It is these active articles that are </span>
+  <span class='comment val'># not in the feed that need to be deactivated.</span>
+  <span class='active_articles identifier id'>active_articles</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='articles identifier id'>articles</span><span class='lparen token'>(</span><span class='symbol val'>:active</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span>
+  
+  <span class='active_articles identifier id'>active_articles</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='article identifier id'>article</span><span class='bitor op'>|</span>
+    <span class='comment val'># deactivate the article unless it is in the current feed</span>
+    <span class='article identifier id'>article</span><span class='dot token'>.</span><span class='deactivate identifier id'>deactivate</span> <span class='unless unless_mod kw'>unless</span> <span class='current_articles identifier id'>current_articles</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='article identifier id'>article</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_source-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_source</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This method is abstract.</strong> 
+  <div class='inline'><p>
+Subclass and override <tt><a href="#get_source-instance_method" title="Feed#get_source (method)">#get_source</a></tt> to implement a custom class for
+importing articles.
+</p>
+</div>
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>NotImplemented</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 39</span>
+
+<span class='def def kw'>def</span> <span class='get_source identifier id'>get_source</span>
+  <span class='raise identifier id'>raise</span> <span class='NotImplemented constant id'>NotImplemented</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update_articles-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_articles</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Download active articles, deactive old articles
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 16</span>
+
+<span class='def def kw'>def</span> <span class='update_articles identifier id'>update_articles</span>
+  <span class='new_articles identifier id'>new_articles</span> <span class='assign token'>=</span> <span class='get_new_articles identifier id'>get_new_articles</span>
+  <span class='deactivate_old_articles identifier id'>deactivate_old_articles</span><span class='lparen token'>(</span><span class='new_articles identifier id'>new_articles</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Apr  4 00:22:51 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>
