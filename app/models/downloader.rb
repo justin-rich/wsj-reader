@@ -7,7 +7,7 @@ class Downloader
   # @param [Integer] timeout the timeout limit in seconds
   #
   # @return [Downloader]
-  def initialize(url, timeout = '20')
+  def initialize(url, timeout = 20)
     login      
     self.url = url
     self.timeout = timeout
