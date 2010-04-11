@@ -41,6 +41,7 @@ gem "hpricot", "0.6.161"
 gem "nokogiri", "1.0.6"
 gem 'merb-colorful-logger'
 gem "chardet", :require => "UniversalDetector"
+gem "yard", "0.5.4"
 
 gem "bundler", "0.9.12"
 gem "thin", "1.2.7"
