@@ -153,6 +153,29 @@ articles).
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_new_articles-instance_method" title="#get_new_articles (instance method)">- (Array&lt;Article&gt;) <strong>get_new_articles</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="abstract note title">Abstract</span>
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Gets a list of articles currently in the feed.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_source-instance_method" title="#get_source (instance method)">- (Object) <strong>get_source</strong> </a>
     
 
@@ -165,7 +188,10 @@ articles).
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Sets doc variable as the source document for a list of articles.
+</p>
+</div></span>
   
 </li>
 
@@ -276,6 +302,7 @@ articles)
       <pre class="lines">
 
 
+22
 23
 24
 25
@@ -288,10 +315,12 @@ articles)
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 22</span>
 
 <span class='def def kw'>def</span> <span class='deactivate_old_articles identifier id'>deactivate_old_articles</span><span class='lparen token'>(</span><span class='current_articles identifier id'>current_articles</span><span class='rparen token'>)</span>
   <span class='comment val'># At this point active_articles includes the articles</span>
@@ -303,7 +332,10 @@ articles)
   
   <span class='active_articles identifier id'>active_articles</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='article identifier id'>article</span><span class='bitor op'>|</span>
     <span class='comment val'># deactivate the article unless it is in the current feed</span>
-    <span class='article identifier id'>article</span><span class='dot token'>.</span><span class='deactivate identifier id'>deactivate</span> <span class='unless unless_mod kw'>unless</span> <span class='current_articles identifier id'>current_articles</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='article identifier id'>article</span><span class='rparen token'>)</span>
+    <span class='unless unless kw'>unless</span> <span class='current_articles identifier id'>current_articles</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='article identifier id'>article</span><span class='rparen token'>)</span>
+      <span class='article identifier id'>article</span><span class='dot token'>.</span><span class='deactivate identifier id'>deactivate</span> 
+      <span class='article identifier id'>article</span><span class='dot token'>.</span><span class='image identifier id'>image</span><span class='dot token'>.</span><span class='deactivate identifier id'>deactivate</span> <span class='unless unless_mod kw'>unless</span> <span class='article identifier id'>article</span><span class='dot token'>.</span><span class='image identifier id'>image</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -313,9 +345,9 @@ articles)
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="get_source-instance_method">
+  <p class="signature " id="get_new_articles-instance_method">
   
-    - (<tt>Object</tt>) <strong>get_source</strong> 
+    - (<tt>Array&lt;<a href="Article.html" title="Article (class)">Article</a>&gt;</tt>) <strong>get_new_articles</strong> 
   
 
   
@@ -329,6 +361,9 @@ importing articles.
 </p>
 </div>
 </p>
+<p>
+Gets a list of articles currently in the feed
+</p>
 
 
   </div>
@@ -339,10 +374,16 @@ importing articles.
   
     <li>
       
-        <span class='type'></span>
+        <span class='type'>(<tt>Array&lt;<a href="Article.html" title="Article (class)">Article</a>&gt;</tt>)</span>
       
       
       
+      
+        &mdash;
+        <div class='inline'><p>
+the list of article currently in the feed
+</p>
+</div>
       
     </li>
   
@@ -367,12 +408,73 @@ importing articles.
       <pre class="lines">
 
 
-39
-40
-41</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 44</span>
+
+<span class='def def kw'>def</span> <span class='get_new_articles identifier id'>get_new_articles</span>
+  <span class='raise identifier id'>raise</span> <span class='NotImplemented constant id'>NotImplemented</span>    
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_source-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_source</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This method is abstract.</strong> 
+  <div class='inline'><p>
+Subclass and override <tt><a href="#get_source-instance_method" title="Feed#get_source (method)">#get_source</a></tt> to implement a custom class for
+importing articles.
+</p>
+</div>
+</p>
+<p>
+Sets doc variable as the source document for a list of articles
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>NotImplemented</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 51</span>
 
 <span class='def def kw'>def</span> <span class='get_source identifier id'>get_source</span>
   <span class='raise identifier id'>raise</span> <span class='NotImplemented constant id'>NotImplemented</span>
@@ -407,13 +509,13 @@ Download active articles, deactive old articles
       <pre class="lines">
 
 
+15
 16
 17
-18
-19</pre>
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'app/models/feed.rb', line 15</span>
 
 <span class='def def kw'>def</span> <span class='update_articles identifier id'>update_articles</span>
   <span class='new_articles identifier id'>new_articles</span> <span class='assign token'>=</span> <span class='get_new_articles identifier id'>get_new_articles</span>
@@ -430,7 +532,7 @@ Download active articles, deactive old articles
 </div>
     
     <div id="footer">
-  Generated on Sun Apr  4 00:22:51 2010 by 
+  Generated on Sat Apr 10 22:57:46 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>

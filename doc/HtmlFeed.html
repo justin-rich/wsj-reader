@@ -112,7 +112,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Sets doc variable as the source document for a list of articles.
+</p>
+</div></span>
   
 </li>
 
@@ -129,7 +132,7 @@
   
   
   <h3 class="inherited">Methods inherited from <a href="Feed.html" title="Feed (class)">Feed</a></h3>
-  <p class="inherited"><a href="Feed.html#deactivate_old_articles-instance_method" title="Feed#deactivate_old_articles (method)">#deactivate_old_articles</a>, <a href="Feed.html#update_articles-instance_method" title="Feed#update_articles (method)">#update_articles</a></p>
+  <p class="inherited"><a href="Feed.html#deactivate_old_articles-instance_method" title="Feed#deactivate_old_articles (method)">#deactivate_old_articles</a>, <a href="Feed.html#get_new_articles-instance_method" title="Feed#get_new_articles (method)">#get_new_articles</a>, <a href="Feed.html#update_articles-instance_method" title="Feed#update_articles (method)">#update_articles</a></p>
 
   
 
@@ -144,39 +147,34 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sets doc variable as the source document for a list of articles
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2
-3
 4
 5
 6
-7
-8
-9
-10
-11
-12
-13</pre>
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/html_feed.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'app/models/html_feed.rb', line 4</span>
 
 <span class='def def kw'>def</span> <span class='get_source identifier id'>get_source</span>
-  <span class='float val'>5</span><span class='dot token'>.</span><span class='times identifier id'>times</span> <span class='do do kw'>do</span>
-    <span class='begin begin kw'>begin</span>
-      <span class='Article constant id'>Article</span><span class='dot token'>.</span><span class='login identifier id'>login</span>
-      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Nokogiri constant id'>Nokogiri</span><span class='colon2 op'>::</span><span class='HTML constant id'>HTML</span><span class='lparen token'>(</span><span class='dxstring node'>`curl -s -b #{Merb.root}/config/wsj/cookies.txt &quot;#{self.url}&quot;`</span><span class='rparen token'>)</span>
-      <span class='return return kw'>return</span>
-    <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
-      <span class='p identifier id'>p</span> <span class='string val'>&quot;There was a problem downloading the RSS feed&quot;</span>
-      <span class='next next kw'>next</span>
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>
+  <span class='html identifier id'>html</span> <span class='assign token'>=</span> <span class='Downloader constant id'>Downloader</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='lparen token'>(</span><span class='html identifier id'>html</span><span class='dot token'>.</span><span class='source identifier id'>source</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -189,7 +187,7 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Apr  4 00:22:50 2010 by 
+  Generated on Sat Apr 10 22:57:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>

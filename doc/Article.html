@@ -70,7 +70,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2">DataMapper::Resource</dd>
+      <dd class="r2">DataMapper::Resource, <a href="WSJ/Parser.html" title="WSJ::Parser (module)">WSJ::Parser</a></dd>
       
     
   
@@ -85,37 +85,10 @@
 
 
   
-  <h2>Instance Attribute Summary</h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#doc-instance_method" title="#doc (instance method)">- (Object) <strong>doc</strong> </a>
-    
-
-    
-  </span>
-  
-  
-    
-    
   
   
   
   
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-tmp variable for the Hpricot doc.
-</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
-
 
   
     <h2>Class Method Summary</h2>
@@ -125,7 +98,7 @@ tmp variable for the Hpricot doc.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#factory-class_method" title="factory (class method)">+ (Object) <strong>factory</strong>(attrs) </a>
+      <a href="#factory-class_method" title="factory (class method)">+ (Article) <strong>factory</strong>(attrs) </a>
     
 
     
@@ -138,31 +111,7 @@ tmp variable for the Hpricot doc.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Create or update an article based on whether or not it&#8217;s already in
-the db (and keyed off of the article URL).
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#login-class_method" title="login (class method)">+ (Object) <strong>login</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Setup the cookies to download protected URLs on wsj.com.
+Aricle factory - Creates or updates an Article.
 </p>
 </div></span>
   
@@ -178,7 +127,7 @@ Setup the cookies to download protected URLs on wsj.com.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#clean-instance_method" title="#clean (instance method)">- (String) <strong>clean</strong>(str) </a>
+      <a href="#deactivate-instance_method" title="#deactivate (instance method)">- (Boolean) <strong>deactivate</strong> </a>
     
 
     
@@ -191,7 +140,7 @@ Setup the cookies to download protected URLs on wsj.com.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Consolidates multipe white space characters into one.
+Mark the article as being inactive.
 </p>
 </div></span>
   
@@ -201,207 +150,7 @@ Consolidates multipe white space characters into one.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#deactivate-instance_method" title="#deactivate (instance method)">- (Object) <strong>deactivate</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#desc-instance_method" title="#desc (instance method)">- (Object) <strong>desc</strong>(size = 255) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#destroy_image-instance_method" title="#destroy_image (instance method)">- (Object) <strong>destroy_image</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_author-instance_method" title="#get_author (instance method)">- (Object) <strong>get_author</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_fulltext-instance_method" title="#get_fulltext (instance method)">- (Object) <strong>get_fulltext</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_html-instance_method" title="#get_html (instance method)">- (Object) <strong>get_html</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_image-instance_method" title="#get_image (instance method)">- (Object) <strong>get_image</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_pub_date-instance_method" title="#get_pub_date (instance method)">- (Object) <strong>get_pub_date</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_subtitle-instance_method" title="#get_subtitle (instance method)">- (Object) <strong>get_subtitle</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_title-instance_method" title="#get_title (instance method)">- (Object) <strong>get_title</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#import-instance_method" title="#import (instance method)">- (Object) <strong>import</strong>(default_attrs = {}) </a>
+      <a href="#desc-instance_method" title="#desc (instance method)">- (String) <strong>desc</strong>(size = 255) </a>
     
 
     
@@ -414,9 +163,7 @@ Consolidates multipe white space characters into one.
 
   
     <span class="summary_desc"><div class='inline'><p>
-After an Article is saved (given a URL), this will download the
-article&#8217;s URL, and will save the Article&#8217;s attributes to the
-database.
+A short snippet of an article.
 </p>
 </div></span>
   
@@ -426,7 +173,53 @@ database.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mark_as_read-instance_method" title="#mark_as_read (instance method)">- (Object) <strong>mark_as_read</strong> </a>
+      <a href="#destroy_image-instance_method" title="#destroy_image (instance method)">- (Boolean) <strong>destroy_image</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Mark the article as being inactive.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#import-instance_method" title="#import (instance method)">- (Article) <strong>import</strong>(attrs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Sets the article&#8217;s attributes to screen-scraped and given attributes.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mark_as_read-instance_method" title="#mark_as_read (instance method)">- (Boolean) <strong>mark_as_read</strong> </a>
     
 
     
@@ -449,7 +242,7 @@ Mark the article as having been read.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#scrape_info-instance_method" title="#scrape_info (instance method)">- (Object) <strong>scrape_info</strong>(default_attrs) </a>
+      <a href="#short_version-instance_method" title="#short_version (instance method)">- (String) <strong>short_version</strong>(size = 3000) </a>
     
 
     
@@ -461,27 +254,10 @@ Mark the article as having been read.
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#short_version-instance_method" title="#short_version (instance method)">- (Object) <strong>short_version</strong>(size = 3000) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+A shorter version of the article for Page One.
+</p>
+</div></span>
   
 </li>
 
@@ -491,53 +267,15 @@ Mark the article as having been read.
 
 
   
-  <div id="instance_attr_details" class="attr_details">
-    <h2>Instance Attribute Details</h2>
-    
-      
-      <span id="doc=-instance_method"></span>
-      <span id="doc-instance_method"></span>
-      <div class="method_details first">
-  <p class="signature first" id="doc-instance_method">
   
-    - (<tt>Object</tt>) <strong>doc</strong> 
   
-
   
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-tmp variable for the Hpricot doc
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
   
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-4
-5
-6</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 4</span>
-
-<span class='def def kw'>def</span> <span class='doc identifier id'>doc</span>
-  <span class='@doc ivar id'>@doc</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="WSJ/Parser.html" title="WSJ::Parser (module)">WSJ::Parser</a></h3>
+  <p class="inherited"><a href="WSJ/Parser.html#clean-instance_method" title="WSJ::Parser#clean (method)">#clean</a>, <a href="WSJ/Parser.html#get_author-instance_method" title="WSJ::Parser#get_author (method)">#get_author</a>, <a href="WSJ/Parser.html#get_doc-instance_method" title="WSJ::Parser#get_doc (method)">#get_doc</a>, <a href="WSJ/Parser.html#get_fulltext-instance_method" title="WSJ::Parser#get_fulltext (method)">#get_fulltext</a>, <a href="WSJ/Parser.html#get_image-instance_method" title="WSJ::Parser#get_image (method)">#get_image</a>, <a href="WSJ/Parser.html#get_pub_date-instance_method" title="WSJ::Parser#get_pub_date (method)">#get_pub_date</a>, <a href="WSJ/Parser.html#get_subtitle-instance_method" title="WSJ::Parser#get_subtitle (method)">#get_subtitle</a>, <a href="WSJ/Parser.html#get_title-instance_method" title="WSJ::Parser#get_title (method)">#get_title</a>, <a href="WSJ/Parser.html#parse-instance_method" title="WSJ::Parser#parse (method)">#parse</a></p>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -547,15 +285,14 @@ tmp variable for the Hpricot doc
       <div class="method_details first">
   <p class="signature first" id="factory-class_method">
   
-    + (<tt>Object</tt>) <strong>factory</strong>(attrs) 
+    + (<tt><a href="" title="Article (class)">Article</a></tt>) <strong>factory</strong>(attrs) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Create or update an article based on whether or not it&#8217;s already in
-the db (and keyed off of the article URL)
+Aricle factory - Creates or updates an Article
 </p>
 
 
@@ -563,17 +300,149 @@ the db (and keyed off of the article URL)
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Create an article for a Feed
+</p>
+</div></h4>
+      <pre class="example code"><span class='Article constant id'>Article</span><span class='dot token'>.</span><span class='factory identifier id'>factory</span><span class='lparen token'>(</span>
+           <span class='symbol val'>:category</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Category constant id'>Category</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='comma token'>,</span>
+           <span class='symbol val'>:description</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Description'</span><span class='comma token'>,</span>
+           <span class='symbol val'>:feed</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Feed constant id'>Feed</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='comma token'>,</span>
+           <span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;http://online.wsj.com/articles/1&quot;</span><span class='comma token'>,</span>
+           <span class='symbol val'>:priority</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>1</span>
+         <span class='rparen token'>)</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>attrs</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the default attrs to create or update an Article with
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <h3>Options Hash (<tt>attrs</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:url</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+the url of the article (required)
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="Category.html" title="Category (class)">Category</a></tt>)</span>
+          <span class="name">:category</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+the Category the article&#8217;s Feed belongs_to
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="Feed.html" title="Feed (class)">Feed</a></tt>)</span>
+          <span class="name">:feed</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+the Feed the article belongs to
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:description</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+the description of the article
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="name">:priority</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+the priority of the article for a Feed
+</p>
+</div>
+        </tr>
+      
+    </ul>
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" title="Article (class)">Article</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the newly created or updated article
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-43
-44
-45
-46
-47
 48
 49
 50
@@ -599,7 +468,7 @@ the db (and keyed off of the article URL)
 70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 48</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='factory identifier id'>factory</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>
   <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='first identifier id'>first</span><span class='lparen token'>(</span><span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='attrs identifier id'>attrs</span><span class='lbrack token'>[</span><span class='symbol val'>:url</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
@@ -613,75 +482,16 @@ the db (and keyed off of the article URL)
   
   <span class='if if kw'>if</span> <span class='a identifier id'>a</span> <span class='comment val'># If the article already exists</span>
     <span class='comment val'># Scrape an article 2 additional times looking for images</span>
-    <span class='if if kw'>if</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='image identifier id'>image</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='andop op'>&amp;&amp;</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='attempts identifier id'>attempts</span> <span class='lt op'>&lt;</span> <span class='integer val'>2</span> 
+    <span class='if if kw'>if</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='fulltext identifier id'>fulltext</span><span class='dot token'>.</span><span class='blank? fid id'>blank?</span> <span class='andop op'>&amp;&amp;</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='attempts identifier id'>attempts</span> <span class='lt op'>&lt;</span> <span class='integer val'>2</span> 
       <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='import identifier id'>import</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>
     <span class='else else kw'>else</span> <span class='comment val'># After the 2 attempts, just start updating the article as active</span>
-      <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='attrs identifier id'>attrs</span>
-    <span class='end end kw'>end</span>
-               
-    <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
-    <span class='a identifier id'>a</span>
+      <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>
+      <span class='a identifier id'>a</span>
+    <span class='end end kw'>end</span>                
   <span class='else else kw'>else</span> <span class='comment val'># Otherwise, create a new article</span>
     <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>      
     <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='import identifier id'>import</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>
-    <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
-    <span class='a identifier id'>a</span>
-  <span class='end end kw'>end</span>    
-  
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="login-class_method">
-  
-    + (<tt>Object</tt>) <strong>login</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Setup the cookies to download protected URLs on wsj.com
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 30</span>
-
-<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='login identifier id'>login</span>
-  <span class='begin begin kw'>begin</span>
-    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{Merb.root}/config/wsj/cookies.txt&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='read identifier id'>read</span>      
-  <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
-    <span class='dxstring node'>`curl -s -c #{Merb.root}/config/wsj/cookies.txt http://online.wsj.com/home-page`</span>      
-    <span class='dxstring node'>`curl -s -c #{Merb.root}/config/wsj/cookies.txt -d &quot;user=justin@justinrich.com&amp;password=2p2aia5&quot; http://commerce.wsj.com/auth/submitlogin`</span>      
-  <span class='end end kw'>end</span>
-  
-  <span class='true true kw'>true</span>
+  <span class='end end kw'>end</span>        
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -696,16 +506,69 @@ Setup the cookies to download protected URLs on wsj.com
     
     
       <div class="method_details first">
-  <p class="signature first" id="clean-instance_method">
+  <p class="signature first" id="deactivate-instance_method">
   
-    - (<tt>String</tt>) <strong>clean</strong>(str) 
+    - (<tt>Boolean</tt>) <strong>deactivate</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Consolidates multipe white space characters into one
+Mark the article as being inactive
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 82</span>
+
+<span class='def def kw'>def</span> <span class='deactivate identifier id'>deactivate</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:active</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="desc-instance_method">
+  
+    - (<tt>String</tt>) <strong>desc</strong>(size = 255) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A short snippet of an article.
 </p>
 
 
@@ -717,16 +580,18 @@ Consolidates multipe white space characters into one
   
     <li>
       
-        <span class='type'>(<tt>String</tt>, <tt>#gsub</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
-        <span class='name'>str</span>
+        <span class='name'>size</span>
       
+      
+        <em class="default">(defaults to: <tt>255</tt>)</em>
       
       
         &mdash;
         <div class='inline'><p>
-the string to manipulate
+the desired size of the snippet
 </p>
 </div>
       
@@ -745,7 +610,7 @@ the string to manipulate
       
         &mdash;
         <div class='inline'><p>
-with no more than one white space character consecutively
+a snippet of the article, without any HTML tags
 </p>
 </div>
       
@@ -759,84 +624,28 @@ with no more than one white space character consecutively
       <pre class="lines">
 
 
-208
-209
-210</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 208</span>
-
-<span class='def def kw'>def</span> <span class='clean identifier id'>clean</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='rparen token'>)</span>
-  <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/\s+/</span><span class='comma token'>,</span> <span class='string val'>' '</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='strip identifier id'>strip</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="deactivate-instance_method">
-  
-    - (<tt>Object</tt>) <strong>deactivate</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+99
+100
+101
+102
+103
+104
 105
 106
-107</pre>
+107
+108
+109
+110
+111
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 105</span>
-
-<span class='def def kw'>def</span> <span class='deactivate identifier id'>deactivate</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:active</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="desc-instance_method">
-  
-    - (<tt>Object</tt>) <strong>desc</strong>(size = 255) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 99</span>
 
 <span class='def def kw'>def</span> <span class='desc identifier id'>desc</span><span class='lparen token'>(</span><span class='size identifier id'>size</span><span class='assign token'>=</span><span class='integer val'>255</span><span class='rparen token'>)</span>
+  <span class='comment val'># Use the description</span>
   <span class='unless unless kw'>unless</span> <span class='description identifier id'>description</span><span class='dot token'>.</span><span class='blank? fid id'>blank?</span>
     <span class='parts identifier id'>parts</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='description identifier id'>description</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot;&lt;br /&gt;&quot;</span><span class='rparen token'>)</span>
 
@@ -847,7 +656,7 @@ with no more than one white space character consecutively
     <span class='end end kw'>end</span>
 
     <span class='part identifier id'>part</span><span class='dot token'>.</span><span class='strip_html identifier id'>strip_html</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='size identifier id'>size</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='string val'>&quot;...&quot;</span>
-  <span class='else else kw'>else</span>            
+  <span class='else else kw'>else</span> <span class='comment val'># use the fulltext if the description is empty         </span>
     <span class='self self kw'>self</span><span class='dot token'>.</span><span class='fulltext identifier id'>fulltext</span><span class='dot token'>.</span><span class='strip_html identifier id'>strip_html</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='size identifier id'>size</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='string val'>&quot;...&quot;</span>
   <span class='end end kw'>end</span>    
 <span class='end end kw'>end</span>
@@ -860,23 +669,53 @@ with no more than one white space character consecutively
       <div class="method_details ">
   <p class="signature " id="destroy_image-instance_method">
   
-    - (<tt>Object</tt>) <strong>destroy_image</strong> 
+    - (<tt>Boolean</tt>) <strong>destroy_image</strong> 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Mark the article as being inactive
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+true if sucessful, false otherwise
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-212
-213
-214
-215</pre>
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 89</span>
 
 <span class='def def kw'>def</span> <span class='destroy_image identifier id'>destroy_image</span>
   <span class='return return kw'>return</span> <span class='true true kw'>true</span> <span class='if if_mod kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='image identifier id'>image</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -889,329 +728,82 @@ with no more than one white space character consecutively
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="get_author-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_author</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 161</span>
-
-<span class='def def kw'>def</span> <span class='get_author identifier id'>get_author</span>
-  
-  <span class='if if kw'>if</span> <span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'h3.byline'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
-    <span class='tmp identifier id'>tmp</span> <span class='assign token'>=</span> <span class='string val'>''</span>      
-    <span class='byline identifier id'>byline</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'h3.byline'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_text identifier id'>inner_text</span>
-    <span class='byline identifier id'>byline</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='word identifier id'>word</span><span class='bitor op'>|</span>
-      <span class='unless unless kw'>unless</span> <span class='regexp val'>/and/i</span><span class='dot token'>.</span><span class='match identifier id'>match</span><span class='lparen token'>(</span><span class='word identifier id'>word</span><span class='rparen token'>)</span>
-        <span class='tmp identifier id'>tmp</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;#{word.capitalize} &quot;</span>          
-      <span class='else else kw'>else</span>
-        <span class='tmp identifier id'>tmp</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;#{word.downcase} &quot;</span>
-      <span class='end end kw'>end</span>
-    <span class='end end kw'>end</span>
-    <span class='clean identifier id'>clean</span><span class='lparen token'>(</span><span class='tmp identifier id'>tmp</span><span class='rparen token'>)</span>
-    
-  <span class='else else kw'>else</span>
-    <span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'li.byline/h3'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_text identifier id'>inner_text</span>
-  <span class='end end kw'>end</span>
-
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_fulltext-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_fulltext</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-185
-186
-187
-188
-189
-190
-191
-192</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 185</span>
-
-<span class='def def kw'>def</span> <span class='get_fulltext identifier id'>get_fulltext</span>
-  <span class='tmpdoc identifier id'>tmpdoc</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'div.articlePage'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='rparen token'>)</span> <span class='comment val'># clone the existing doc to safely remove some HTML</span>
-  <span class='lparen token'>(</span><span class='tmpdoc identifier id'>tmpdoc</span><span class='div op'>/</span><span class='string val'>'div'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='remove identifier id'>remove</span>
-  <span class='lparen token'>(</span><span class='tmpdoc identifier id'>tmpdoc</span><span class='div op'>/</span><span class='string val'>'h3'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='remove identifier id'>remove</span>    
-  <span class='tmpdoc identifier id'>tmpdoc</span><span class='dot token'>.</span><span class='search identifier id'>search</span><span class='lparen token'>(</span><span class='string val'>'p'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='string val'>''</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='paragraphs identifier id'>paragraphs</span><span class='comma token'>,</span> <span class='paragraph identifier id'>paragraph</span><span class='bitor op'>|</span>
-    <span class='paragraphs identifier id'>paragraphs</span> <span class='lshft op'>&lt;&lt;</span> <span class='paragraph identifier id'>paragraph</span><span class='dot token'>.</span><span class='to_html identifier id'>to_html</span><span class='dot token'>.</span><span class='transliterate identifier id'>transliterate</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_html-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_html</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 133</span>
-
-<span class='def def kw'>def</span> <span class='get_html identifier id'>get_html</span>
-  <span class='float val'>5</span><span class='dot token'>.</span><span class='times identifier id'>times</span> <span class='do do kw'>do</span>      
-    <span class='begin begin kw'>begin</span>
-      <span class='Article constant id'>Article</span><span class='dot token'>.</span><span class='login identifier id'>login</span>
-      <span class='p identifier id'>p</span> <span class='dstring node'>&quot;Downloading #{url}&quot;</span>
-      <span class='timeout identifier id'>timeout</span><span class='lparen token'>(</span><span class='integer val'>20</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
-        <span class='time1 identifier id'>time1</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span>                  
-        <span class='html identifier id'>html</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='lparen token'>(</span><span class='dxstring node'>`curl -s -b#{Merb.root}/config/wsj/cookies.txt &quot;#{self.url}&quot;`</span><span class='rparen token'>)</span>          
-        <span class='p identifier id'>p</span> <span class='dstring node'>&quot;Took #{Time.now-time1} seconds&quot;</span>
-        <span class='return return kw'>return</span> <span class='html identifier id'>html</span>
-      <span class='end end kw'>end</span>
-    <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
-      <span class='p identifier id'>p</span> <span class='string val'>&quot;There was a problem downloading the article&quot;</span>
-      <span class='p identifier id'>p</span> <span class='e identifier id'>e</span>
-      <span class='next next kw'>next</span>
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>  
-  
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_image-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_image</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-194
-195
-196
-197
-198
-199
-200
-201
-202</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 194</span>
-
-<span class='def def kw'>def</span> <span class='get_image identifier id'>get_image</span>
-  <span class='unless unless kw'>unless</span> <span class='lparen token'>(</span><span class='img identifier id'>img</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'div.articlePage'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;img&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
-    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='image identifier id'>image</span> <span class='assign token'>=</span> <span class='Image constant id'>Image</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='img identifier id'>img</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='string val'>&quot;src&quot;</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
-                   <span class='symbol val'>:caption</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'p.targetCaption'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='comma token'>,</span>
-                   <span class='symbol val'>:article</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
-  <span class='else else kw'>else</span>
-    <span class='nil nil kw'>nil</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_pub_date-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_pub_date</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-181
-182
-183</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 181</span>
-
-<span class='def def kw'>def</span> <span class='get_pub_date identifier id'>get_pub_date</span>
-  <span class='clean identifier id'>clean</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'li.dateStamp/small'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_subtitle-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_subtitle</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-157
-158
-159</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 157</span>
-
-<span class='def def kw'>def</span> <span class='get_subtitle identifier id'>get_subtitle</span>
-  <span class='clean identifier id'>clean</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'h2.subhead'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="get_title-instance_method">
-  
-    - (<tt>Object</tt>) <strong>get_title</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-153
-154
-155</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 153</span>
-
-<span class='def def kw'>def</span> <span class='get_title identifier id'>get_title</span>
-  <span class='clean identifier id'>clean</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span><span class='div op'>/</span><span class='string val'>'h1'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <p class="signature " id="import-instance_method">
   
-    - (<tt>Object</tt>) <strong>import</strong>(default_attrs = {}) 
+    - (<tt><a href="" title="Article (class)">Article</a></tt>) <strong>import</strong>(attrs) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-After an Article is saved (given a URL), this will download the
-article&#8217;s URL, and will save the Article&#8217;s attributes to the
-database
+Sets the article&#8217;s attributes to screen-scraped and given attributes
 </p>
 
 
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>default_attrs</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the given attributes for the article
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" title="Article (class)">Article</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the article with newly scraped attributes
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-114
-115
-116</pre>
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 138</span>
 
-<span class='def def kw'>def</span> <span class='import identifier id'>import</span><span class='lparen token'>(</span><span class='default_attrs identifier id'>default_attrs</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='scrape_info identifier id'>scrape_info</span><span class='lparen token'>(</span><span class='default_attrs identifier id'>default_attrs</span><span class='rparen token'>)</span>
+<span class='def def kw'>def</span> <span class='import identifier id'>import</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='attrs identifier id'>attrs</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+  <span class='self self kw'>self</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1222,7 +814,7 @@ database
       <div class="method_details ">
   <p class="signature " id="mark_as_read-instance_method">
   
-    - (<tt>Object</tt>) <strong>mark_as_read</strong> 
+    - (<tt>Boolean</tt>) <strong>mark_as_read</strong> 
   
 
   
@@ -1236,19 +828,32 @@ Mark the article as having been read
   </div>
 </div>
 <div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
   
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-73
-74
-75</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 75</span>
 
 <span class='def def kw'>def</span> <span class='mark_as_read identifier id'>mark_as_read</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:unread</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
@@ -1260,21 +865,71 @@ Mark the article as having been read
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="scrape_info-instance_method">
+  <p class="signature " id="short_version-instance_method">
   
-    - (<tt>Object</tt>) <strong>scrape_info</strong>(default_attrs) 
+    - (<tt>String</tt>) <strong>short_version</strong>(size = 3000) 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A shorter version of the article for Page One
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <span class='name'>size</span>
+      
+      
+        <em class="default">(defaults to: <tt>3000</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the desired size of the short article
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+a short version of the article, with HTML tags
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-118
-119
-120
 121
 122
 123
@@ -1288,55 +943,7 @@ Mark the article as having been read
 131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 118</span>
-
-<span class='def def kw'>def</span> <span class='scrape_info identifier id'>scrape_info</span><span class='lparen token'>(</span><span class='default_attrs identifier id'>default_attrs</span><span class='rparen token'>)</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='get_html identifier id'>get_html</span>
-  
-  <span class='attrs identifier id'>attrs</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
-    <span class='symbol val'>:title</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_title identifier id'>get_title</span><span class='comma token'>,</span>
-    <span class='symbol val'>:subtitle</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_subtitle identifier id'>get_subtitle</span><span class='comma token'>,</span>
-    <span class='symbol val'>:author</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_author identifier id'>get_author</span><span class='comma token'>,</span>
-    <span class='symbol val'>:pub_date</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_pub_date identifier id'>get_pub_date</span><span class='comma token'>,</span>
-    <span class='symbol val'>:fulltext</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_fulltext identifier id'>get_fulltext</span><span class='comma token'>,</span>
-    <span class='symbol val'>:image</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_image identifier id'>get_image</span>
-  <span class='rbrace token'>}</span>
-  
-  <span class='attrs identifier id'>attrs</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='default_attrs identifier id'>default_attrs</span><span class='rparen token'>)</span>    
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="short_version-instance_method">
-  
-    - (<tt>Object</tt>) <strong>short_version</strong>(size = 3000) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'app/models/article.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='short_version identifier id'>short_version</span><span class='lparen token'>(</span><span class='size identifier id'>size</span><span class='assign token'>=</span><span class='integer val'>3000</span><span class='rparen token'>)</span>
   <span class='parts identifier id'>parts</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='fulltext identifier id'>fulltext</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot;&lt;/p&gt;&quot;</span><span class='rparen token'>)</span>
@@ -1360,7 +967,7 @@ Mark the article as having been read
 </div>
     
     <div id="footer">
-  Generated on Sun Apr  4 00:22:49 2010 by 
+  Generated on Sat Apr 10 22:57:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>

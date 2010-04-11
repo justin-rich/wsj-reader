@@ -96,7 +96,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_new_articles-instance_method" title="#get_new_articles (instance method)">- (Object) <strong>get_new_articles</strong> </a>
+      <a href="#get_new_articles-instance_method" title="#get_new_articles (instance method)">- (Array&lt;Article&gt;) <strong>get_new_articles</strong> </a>
     
 
     
@@ -108,7 +108,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Gets a list of articles currently in the feed.
+</p>
+</div></span>
   
 </li>
 
@@ -128,7 +131,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Sets doc variable as the source document for a list of articles.
+</p>
+</div></span>
   
 </li>
 
@@ -156,11 +162,41 @@
       <div class="method_details first">
   <p class="signature first" id="get_new_articles-instance_method">
   
-    - (<tt>Object</tt>) <strong>get_new_articles</strong> 
+    - (<tt>Array&lt;<a href="Article.html" title="Article (class)">Article</a>&gt;</tt>) <strong>get_new_articles</strong> 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Gets a list of articles currently in the feed
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;<a href="Article.html" title="Article (class)">Article</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the list of article currently in the feed
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -225,33 +261,34 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sets doc variable as the source document for a list of articles
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2
-3
 4
 5
 6
-7
-8
-9
-10</pre>
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/rss_feed.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'app/models/rss_feed.rb', line 4</span>
 
 <span class='def def kw'>def</span> <span class='get_source identifier id'>get_source</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='begin begin kw'>begin</span>
-    <span class='Article constant id'>Article</span><span class='dot token'>.</span><span class='login identifier id'>login</span>
-    <span class='Hpricot constant id'>Hpricot</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='dxstring node'>`curl -s -b #{Merb.root}/config/wsj/cookies.txt &quot;#{self.url}&quot;`</span><span class='rparen token'>)</span>
-  <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
-    <span class='p identifier id'>p</span> <span class='string val'>&quot;There was a problem downloading the RSS feed&quot;</span>
-    <span class='Hpricot constant id'>Hpricot</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='string val'>''</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>
+  <span class='xml identifier id'>xml</span> <span class='assign token'>=</span> <span class='Downloader constant id'>Downloader</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='source identifier id'>source</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -264,7 +301,7 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Apr  4 00:22:50 2010 by 
+  Generated on Sat Apr 10 22:57:45 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>
