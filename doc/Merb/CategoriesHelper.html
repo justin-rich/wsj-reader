@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Merb::CategoriesHelper</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><a href="../Merb.html" title="Merb (module)">Merb</a></span>
+     &raquo; 
+    <span class="title">CategoriesHelper</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Merb::CategoriesHelper 
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/helpers/categories_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#whats_news_print-instance_method" title="#whats_news_print (instance method)">- (Object) <strong>whats_news_print</strong>(article, first = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="whats_news_print-instance_method">
+  
+    - (<tt>Object</tt>) <strong>whats_news_print</strong>(article, first = false) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/categories_helper.rb', line 3</span>
+
+<span class='def def kw'>def</span> <span class='whats_news_print identifier id'>whats_news_print</span><span class='lparen token'>(</span><span class='article identifier id'>article</span><span class='comma token'>,</span> <span class='first identifier id'>first</span><span class='assign token'>=</span><span class='false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='parts identifier id'>parts</span> <span class='assign token'>=</span> <span class='article identifier id'>article</span><span class='dot token'>.</span><span class='desc identifier id'>desc</span><span class='lparen token'>(</span><span class='integer val'>255</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span>
+  
+  <span class='bolded_parts identifier id'>bolded_parts</span> <span class='assign token'>=</span> <span class='if if kw'>if</span> <span class='first identifier id'>first</span>
+    <span class='parts identifier id'>parts</span><span class='dot token'>.</span><span class='slice identifier id'>slice</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='comma token'>,</span> <span class='integer val'>2</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span>        
+  <span class='else else kw'>else</span>
+    <span class='parts identifier id'>parts</span><span class='dot token'>.</span><span class='slice identifier id'>slice</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='comma token'>,</span> <span class='integer val'>4</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='unbolded_parts identifier id'>unbolded_parts</span> <span class='assign token'>=</span><span class='lparen token'>(</span> <span class='parts identifier id'>parts</span> <span class='minus op'>-</span> <span class='bolded_parts identifier id'>bolded_parts</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot; &quot;</span><span class='rparen token'>)</span>
+  
+  <span class='bolded_words identifier id'>bolded_words</span> <span class='assign token'>=</span> <span class='if if kw'>if</span> <span class='first identifier id'>first</span>
+    <span class='string val'>&quot;&lt;span class=\&quot;capital\&quot;&gt;&quot;</span> <span class='plus op'>+</span> <span class='bolded_parts identifier id'>bolded_parts</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='comma token'>,</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='string val'>&quot;&lt;/span&gt;&quot;</span> <span class='plus op'>+</span> <span class='bolded_parts identifier id'>bolded_parts</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='comma token'>,</span><span class='bolded_parts identifier id'>bolded_parts</span><span class='dot token'>.</span><span class='size identifier id'>size</span><span class='rbrack token'>]</span>
+  <span class='else else kw'>else</span>
+    <span class='bolded_parts identifier id'>bolded_parts</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='square identifier id'>square</span> <span class='assign token'>=</span> <span class='if if kw'>if</span> <span class='first identifier id'>first</span>
+    <span class='string val'>&quot;&quot;</span>
+  <span class='else else kw'>else</span>
+    <span class='string val'>&quot;&amp;#9744;&quot;</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='square identifier id'>square</span> <span class='plus op'>+</span> <span class='dstring node'>&quot;&lt;a href=\&quot;/articles/#{article.id}\&quot;&gt; &lt;b&gt;&quot;</span> <span class='plus op'>+</span> <span class='bolded_words identifier id'>bolded_words</span> <span class='plus op'>+</span> <span class='string val'>&quot;&lt;/b&gt; &quot;</span> <span class='plus op'>+</span> <span class='unbolded_parts identifier id'>unbolded_parts</span> <span class='plus op'>+</span> <span class='string val'>&quot;&lt;/a&gt;&quot;</span>      
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Apr 10 23:14:17 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>
