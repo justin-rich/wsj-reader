@@ -1,5 +1,5 @@
 class Downloader
-  attr_accessor :url, :timeout, :source
+  attr_accessor :url, :connect_timeout, :source
   ##
   # Setup the cookies to download protected URLs on wsj.com
   # 
@@ -7,7 +7,7 @@ class Downloader
   # @param [Integer] timeout the timeout limit in seconds
   #
   # @return [Downloader]
-  def initialize(url, timeout = 20)
+  def initialize(url, connect_timeout = 20)
     login      
     self.url = url
     self.timeout = timeout
@@ -22,8 +22,8 @@ class Downloader
     begin
       File.open("#{Merb.root}/config/wsj/cookies.txt").read      
     rescue Exception => e
-      `curl --connect-timeout #{self.timeout} -s -c #{Merb.root}/config/wsj/cookies.txt http://online.wsj.com/home-page`      
-      `curl --connect-timeout #{self.timeout} -s -c #{Merb.root}/config/wsj/cookies.txt -d "user=justin@justinrich.com&password=2p2aia5" http://commerce.wsj.com/auth/submitlogin`      
+      `curl --connect-timeout #{self.connect_timeout} -s -c #{Merb.root}/config/wsj/cookies.txt http://online.wsj.com/home-page`      
+      `curl --connect-timeout #{self.connect_timeout} -s -c #{Merb.root}/config/wsj/cookies.txt -d "user=justin@justinrich.com&password=2p2aia5" http://commerce.wsj.com/auth/submitlogin`      
     end
     true
   end
@@ -36,7 +36,7 @@ class Downloader
     5.times do |index|
       begin
         p "Downloading #{self.url} (#{index+1})"
-        return `curl --connect-timeout #{self.timeout} -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`        
+        return `curl --connect-timeout #{self.connect_timeout} -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`        
       rescue Exception => e
         p "There was an error downloading #{self.url}"
         p e
