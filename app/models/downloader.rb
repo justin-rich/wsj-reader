@@ -10,7 +10,7 @@ class Downloader
   def initialize(url, connect_timeout = 20)
     login      
     self.url = url
-    self.timeout = timeout
+    self.connect_timeout = connect_timeout
     self.source = get_source
   end  
   ##
