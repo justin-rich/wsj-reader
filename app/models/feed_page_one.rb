@@ -1,7 +1,7 @@
 class FeedPageOne < HtmlFeed
   # Downloads and scrapes the Today's Paper section of wsj.com
   #
-  # @return [Array] list of articles in section currently
+  # @return [Array<Article>] list of articles in section currently  
   def get_new_articles
     # Download the RSS feed and save to self.doc
     get_source

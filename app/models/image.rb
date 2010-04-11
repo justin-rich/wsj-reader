@@ -9,20 +9,32 @@ class Image
   property :updated_at,  DateTime
   
   belongs_to :article
-  
-  # after :create, :save_category
+    
+  ##
+  # Deactivates the article
+  #
+  # @return [Boolean] true if successful, false otherwise
   def deactivate
     self.update(:active => false)
-  end
-  
+  end  
+  ##
+  # The URL for the thumbnail sized version of the image
+  #
+  # @return [String]
   def thumbnail
     self.url.gsub!(/_[A-Z]_/, "_A_")
   end
-  
+  ##
+  # The URL for the medium sized version of the image
+  #
+  # @return [String]
   def midsize
     self.url.gsub(/_[A-Z]_/, "_D_")
   end
-  
+  ##
+  # The URL for the large sized version of the image
+  #
+  # @return [String]
   def fullsize
     self.url.gsub(/_[A-Z]_/, "_G_")
   end

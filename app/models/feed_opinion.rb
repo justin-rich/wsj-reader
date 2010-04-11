@@ -1,4 +1,7 @@
 class FeedOpinion < HtmlFeed  
+  # Downloads and scrapes the Opinion section of wsj.com
+  #
+  # @return [Array<Article>] list of articles in section currently  
   def get_new_articles
     # Download the RSS feed and save to self.doc
     get_source

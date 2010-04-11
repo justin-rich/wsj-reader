@@ -1,4 +1,7 @@
-class FeedMoneyInvesting < HtmlFeed  
+class FeedMoneyInvesting < HtmlFeed
+  # Downloads and scrapes the Money & Investigation section of wsj.com
+  #
+  # @return [Array<Article>] list of articles in section currently  
   def get_new_articles
     # Download the RSS feed and save to self.doc
     get_source

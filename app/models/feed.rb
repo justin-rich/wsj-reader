@@ -9,15 +9,14 @@ class Feed
   property :type, Discriminator 
   
   has n, :articles
-  belongs_to :category
-  
-  
+  belongs_to :category  
+  ##
   # Download active articles, deactive old articles
   def update_articles
     new_articles = get_new_articles
     deactivate_old_articles(new_articles)
-  end
-  
+  end  
+  ##
   # Deactivate articles that are active, but are not in 
   # the feed (aka old articles)
   def deactivate_old_articles(current_articles)
@@ -36,9 +35,19 @@ class Feed
       end
     end
   end
+  ##
+  # Gets a list of articles currently in the feed
+  #
   # @abstract Subclass and override {#get_source} to implement a custom class for importing articles.
   #
-  # @return
+  # @return [Array<Article>] the list of article currently in the feed
+  def get_new_articles
+    raise NotImplemented    
+  end
+  ##
+  # Sets doc variable as the source document for a list of articles 
+  #
+  # @abstract Subclass and override {#get_source} to implement a custom class for importing articles.
   def get_source
     raise NotImplemented
   end

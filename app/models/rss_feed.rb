@@ -1,14 +1,14 @@
-class RssFeed < Feed    
+class RssFeed < Feed
+  ##
+  # Sets doc variable as the source document for a list of articles     
   def get_source
-    self.doc = begin
-      Article.login
-      Hpricot::XML(`curl -s -b #{Merb.root}/config/wsj/cookies.txt "#{self.url}"`)
-    rescue Exception => e
-      p "There was a problem downloading the RSS feed"
-      Hpricot::XML('')
-    end
+    xml = Downloader.new(self.url)
+    self.doc = Hpricot::XML(xml.source)
   end
-  
+  ##
+  # Gets a list of articles currently in the feed
+  #
+  # @return [Array<Article>] the list of article currently in the feed
   def get_new_articles
     # Download the RSS feed and save to self.doc
     get_source

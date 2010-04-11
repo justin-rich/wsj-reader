@@ -1,7 +1,6 @@
 class Article
   include DataMapper::Resource
-  
-  attr_accessor :doc # tmp variable for the Hpricot doc
+  include WSJ::Parser
   
   property :id,          Serial
   property :url,         Text
@@ -26,9 +25,26 @@ class Article
   
   is :searchable
   
-
-  # Create or update an article based on whether or not it's
-  # already in the db (and keyed off of the article URL)
+  ##
+  # Aricle factory - Creates or updates an Article
+  #
+  # @example Create an article for a Feed
+  #  Article.factory(
+  #             :category => Category.first,
+  #             :description => 'Description',
+  #             :feed => Feed.first,
+  #             :url => "http://online.wsj.com/articles/1",
+  #             :priority => 1
+  #           )
+  #
+  # @param [Hash] attrs the default attrs to create or update an Article with
+  # @option attrs [String] :url the url of the article (required)
+  # @option attrs [Category] :category the Category the article's Feed belongs_to  
+  # @option attrs [Feed] :feed the Feed the article belongs to
+  # @option attrs [String] :description the description of the article
+  # @option attrs [Integer] :priority the priority of the article for a Feed
+  #
+  # @return [Article] the newly created or updated article
   def self.factory(attrs)
     a = first(:url => attrs[:url])
     
@@ -44,30 +60,44 @@ class Article
       if a.fulltext.blank? && a.attempts < 2 
         a.import(attrs)
       else # After the 2 attempts, just start updating the article as active
-        a.attributes = attrs
-      end
-                 
-      a.save
-      a
+        a.update(attrs)
+        a
+      end                
     else # Otherwise, create a new article
       a = self.new(attrs)      
       a.import(attrs)
-      a.save
-      a
     end        
-  end
-  
+  end  
   ##
   # Mark the article as having been read
   #
-  # @param [Hash] default_attrs
-  #
-  # @return [Hash] the default_attrs merged with the attrs found in the HTML source
+  # @return [Boolean] 
   def mark_as_read
     self.update(:unread => false)
-  end
-  
+  end  
+  ##
+  # Mark the article as being inactive
+  #
+  # @return [Boolean]
+  def deactivate
+    self.update(:active => false)
+  end  
+  ##
+  # Mark the article as being inactive
+  #
+  # @return [Boolean] true if sucessful, false otherwise
+  def destroy_image
+    return true if self.image.nil?
+    self.image.destroy
+  end  
+  ##
+  # A short snippet of an article.
+  #
+  # @param [Integer] size the desired size of the snippet
+  #
+  # @return [String] a snippet of the article, without any HTML tags
   def desc(size=255)
+    # Use the description
     unless description.blank?
       parts = self.description.split("<br />")
 
@@ -78,11 +108,16 @@ class Article
       end
 
       part.strip_html[0..size] + "..."
-    else            
+    else # use the fulltext if the description is empty         
       self.fulltext.strip_html[0..size] + "..."
     end    
-  end
-  
+  end  
+  ##
+  # A shorter version of the article for Page One
+  #
+  # @param [Integer] size the desired size of the short article
+  #
+  # @return [String] a short version of the article, with HTML tags
   def short_version(size=3000)
     parts = self.fulltext.split("</p>")
     
@@ -93,46 +128,16 @@ class Article
         shortv
       end
     end
-  end
-  
-  def deactivate
-    self.update(:active => false)
-  end
-  
-  def destroy_image
-    return true if self.image.nil?
-    self.image.destroy
-  end
-  
-  # After an Article is saved (given a URL), this will download
-  # the article's URL, and will save the Article's attributes to 
-  # the database
+  end    
   ##
-  # Download the article, then screen-scrape the articles elements
+  # Sets the article's attributes to screen-scraped and given attributes
   #
-  # @param [Hash] default_attrs
+  # @param [Hash] default_attrs the given attributes for the article
   #
-  # @return [Hash] the default_attrs merged with the attrs found in the HTML source
-  def import(default_attrs = {})
-    self.attributes = scrape_info(default_attrs)
-  end
-  
-  ##
-  # Download the article, then screen-scrape the articles elements
-  #
-  # @param [Hash] default_attrs
-  #
-  # @return [Hash] the default_attrs merged with the attrs found in the HTML source
-  def scrape_info(default_attrs)    
-    attrs = {
-      :title    => get_title,
-      :subtitle => get_subtitle,
-      :author   => get_author,
-      :pub_date => get_pub_date,
-      :fulltext => get_fulltext,
-      :image    => get_image
-    }
-    
-    attrs.merge(default_attrs)    
+  # @return [Article] the article with newly scraped attributes
+  def import(attrs)
+    self.attributes = parse(attrs)
+    self.save
+    self
   end
 end
