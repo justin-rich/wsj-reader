@@ -19,11 +19,17 @@ class Article
   
   belongs_to :feed
   belongs_to :category
-  has 1, :image
+  has 1,     :image
   
   before :destroy, :destroy_image
   
   is :searchable
+  
+  validates_with_method :url,      :method => :check_url
+  validates_with_method :title,    :method => :check_title  
+  validates_with_method :fulltext, :method => :check_fulltext
+  validates_with_method :pub_date, :method => :check_pub_date
+  validates_with_method :priority, :method => :check_priority  
   
   ##
   # Aricle factory - Creates or updates an Article
@@ -60,7 +66,7 @@ class Article
       if a.fulltext.blank? && a.attempts < 2 
         a.import(attrs)
       else # After the 2 attempts, just start updating the article as active
-        a.update(attrs)
+        a.update(attrs)  
         a
       end                
     else # Otherwise, create a new article
@@ -88,7 +94,8 @@ class Article
   # @return [Boolean] true if sucessful, false otherwise
   def destroy_image
     return true if self.image.nil?
-    self.image.destroy
+    self.image.destroy!
+    self.reload
   end  
   ##
   # A short snippet of an article.
@@ -99,17 +106,9 @@ class Article
   def desc(size=255)
     # Use the description
     unless description.blank?
-      parts = self.description.split("<br />")
-
-      part = if parts.size > 1
-        parts[1]
-      else
-        parts[0]
-      end
-
-      part.strip_html[0..size] + "..."
+      description.strip_html[0..size-4] + "..."
     else # use the fulltext if the description is empty         
-      self.fulltext.strip_html[0..size] + "..."
+      self.fulltext.strip_html[0..size-4] + "..."
     end    
   end  
   ##
@@ -132,12 +131,70 @@ class Article
   ##
   # Sets the article's attributes to screen-scraped and given attributes
   #
-  # @param [Hash] default_attrs the given attributes for the article
+  # @param [Hash] attrs the given attributes for the article
   #
   # @return [Article] the article with newly scraped attributes
   def import(attrs)
     self.attributes = parse(attrs)
     self.save
     self
+  end
+  
+  private
+  
+  ##
+  # Checks the URL to make sure it represents a real asset
+  #
+  # @return [true, false] true if the URL starts with 'http://', false otherwise
+  def check_url
+    if self.url && /^http\:\/\/(.*)/.match(self.url)
+      true
+    else
+      [false, "You must specify a URL for an article"]
+    end
+  end  
+  ##
+  # Checks the title to make sure it is non-empty
+  #
+  # @return [true, false] true if the URL starts with 'http://', false otherwise
+  def check_title
+    unless self.title.blank?
+      true
+    else
+      [false, "You must specify a title for an article"]
+    end
+  end
+  ##
+  # Checks the fulltext to make sure it is non-empty
+  #
+  # @return [true, false] true if the URL starts with 'http://', false otherwise
+  def check_fulltext
+    unless self.fulltext.blank?
+      true
+    else
+      [false, "You must specify a title for an article"]
+    end
+  end
+  ##
+  # Checks the pub_date to make sure it is non-empty
+  #
+  # @return [true,false] true if the pub_date is not blank, false otherwise
+  def check_pub_date
+    unless self.pub_date.blank?
+      true
+    else
+      [false, "You must specify a pub_date for an article"]
+    end
+  end
+  ## 
+  # Checks the priority field to make sure it is a non-zero integer
+  #
+  # @return [true, false]
+  def check_priority
+    unless self.priority.nil? || !self.priority.kind_of?(Integer)
+      true
+    else
+      [false, "You must specify an integer priority for an article"]
+    end
   end
 end

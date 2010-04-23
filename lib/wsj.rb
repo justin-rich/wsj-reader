@@ -24,15 +24,15 @@ module WSJ
         :fulltext => get_fulltext,
         :image    => get_image
       }
-
-      attrs.merge(default_attrs)    
+            
+      attrs.merge(default_attrs)          
     end
     ##
     # Gets the Hpricot doc for the article
     #
     # @return [Hpricot::Doc]
     def get_doc(url)
-       Hpricot(Downloader.new(url).source)
+       Hpricot(HttpResource.new(url).contents)
     end  
     ##
     # Scrapes the title for an article

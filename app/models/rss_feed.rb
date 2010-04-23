@@ -2,8 +2,8 @@ class RssFeed < Feed
   ##
   # Sets doc variable as the source document for a list of articles     
   def get_source
-    xml = Downloader.new(self.url)
-    self.doc = Hpricot::XML(xml.source)
+    xml = HttpResource.new(self.url)
+    self.doc = Hpricot::XML(xml.contents)
   end
   ##
   # Gets a list of articles currently in the feed

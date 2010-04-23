@@ -42,6 +42,12 @@ gem "nokogiri", "1.0.6"
 gem 'merb-colorful-logger'
 gem "chardet", :require => "UniversalDetector"
 gem "yard", "0.5.4"
+gem "ZenTest", "4.3.1", :require => "autotest"
+gem "spork", "0.8.2"
+gem "rcov", "0.9.8"
+gem "autotest-notification", "2.2.1"
+gem 'dm-factory_girl', "1.2.3", :require => "factory_girl"
+gem 'activesupport', "2.3.5", :require => "active_support"
 
 gem "bundler", "0.9.12"
 gem "thin", "1.2.7"

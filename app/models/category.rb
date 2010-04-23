@@ -7,6 +7,8 @@ class Category
   
   has n, :feeds
   has n, :articles  
+  
+  validates_with_method :name, :method => :check_name
   ##
   # Loads the categories and feeds for the app
   #
@@ -45,11 +47,11 @@ class Category
         attrs = {:name => feed["name"], :url => feed["url"], :category => c}
         
         case feed["type"]
-        when "FeedPageOne"                
-          FeedPageOne.create(attrs)
-        when "FeedOpinion"
+        when "PageOne"                
+          PageOneageOne.create(attrs)
+        when "Opinion"
           FeedOpinion.create(attrs)
-        when "FeedMoneyInvesting"
+        when "MoneyInvesting"
           FeedMoneyInvesting.create(attrs)                    
         else
           RssFeed.create(attrs)          
@@ -85,13 +87,27 @@ class Category
   # 
   # @return [Article]
   def first_article_with_image
-    arts = self.articles(:order => [ :priority ])
+    arts = self.articles(:active => true, :order => [ :priority ])
     art = arts.detect {|a| a.image && a.image.thumbnail}
     
     if art
       art
     else
       self.articles.first
+    end
+  end
+  
+  private
+  
+  ##
+  # Checks the name for the category to make sure it is not empty
+  #
+  # @return [true, false] true if the name is valid, false otherwise
+  def check_name
+    unless self.name.blank?
+      true
+    else
+      [false, "You must specify a name for the category"]
     end
   end
 end

@@ -582,7 +582,7 @@ Gets the Hpricot doc for the article
       <pre class="code"><span class="info file"># File 'lib/wsj.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='get_doc identifier id'>get_doc</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
-   <span class='Hpricot constant id'>Hpricot</span><span class='lparen token'>(</span><span class='Downloader constant id'>Downloader</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='source identifier id'>source</span><span class='rparen token'>)</span>
+   <span class='Hpricot constant id'>Hpricot</span><span class='lparen token'>(</span><span class='HttpResource constant id'>HttpResource</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='contents identifier id'>contents</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1097,8 +1097,8 @@ the default article attributes merged with the screen-scraped attributes
     <span class='symbol val'>:fulltext</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_fulltext identifier id'>get_fulltext</span><span class='comma token'>,</span>
     <span class='symbol val'>:image</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='get_image identifier id'>get_image</span>
   <span class='rbrace token'>}</span>
-
-  <span class='attrs identifier id'>attrs</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='default_attrs identifier id'>default_attrs</span><span class='rparen token'>)</span>    
+        
+  <span class='attrs identifier id'>attrs</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='default_attrs identifier id'>default_attrs</span><span class='rparen token'>)</span>          
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1111,7 +1111,7 @@ the default article attributes merged with the screen-scraped attributes
 </div>
     
     <div id="footer">
-  Generated on Sat Apr 10 23:14:14 2010 by 
+  Generated on Sun Apr 18 13:45:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>

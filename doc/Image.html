@@ -236,12 +236,12 @@ true if successful, false otherwise
       <pre class="lines">
 
 
-17
-18
-19</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 19</span>
 
 <span class='def def kw'>def</span> <span class='deactivate identifier id'>deactivate</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:active</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
@@ -289,12 +289,12 @@ The URL for the large sized version of the image
       <pre class="lines">
 
 
-38
-39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 40</span>
 
 <span class='def def kw'>def</span> <span class='fullsize identifier id'>fullsize</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/_[A-Z]_/</span><span class='comma token'>,</span> <span class='string val'>&quot;_G_&quot;</span><span class='rparen token'>)</span>
@@ -342,12 +342,12 @@ The URL for the medium sized version of the image
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 33</span>
 
 <span class='def def kw'>def</span> <span class='midsize identifier id'>midsize</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/_[A-Z]_/</span><span class='comma token'>,</span> <span class='string val'>&quot;_D_&quot;</span><span class='rparen token'>)</span>
@@ -395,12 +395,12 @@ The URL for the thumbnail sized version of the image
       <pre class="lines">
 
 
-24
-25
-26</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'app/models/image.rb', line 26</span>
 
 <span class='def def kw'>def</span> <span class='thumbnail identifier id'>thumbnail</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='gsub! fid id'>gsub!</span><span class='lparen token'>(</span><span class='regexp val'>/_[A-Z]_/</span><span class='comma token'>,</span> <span class='string val'>&quot;_A_&quot;</span><span class='rparen token'>)</span>
@@ -416,7 +416,7 @@ The URL for the thumbnail sized version of the image
 </div>
     
     <div id="footer">
-  Generated on Sat Apr 10 23:14:15 2010 by 
+  Generated on Sun Apr 18 13:45:47 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>

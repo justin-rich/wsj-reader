@@ -287,8 +287,8 @@ Sets doc variable as the source document for a list of articles
       <pre class="code"><span class="info file"># File 'app/models/rss_feed.rb', line 4</span>
 
 <span class='def def kw'>def</span> <span class='get_source identifier id'>get_source</span>
-  <span class='xml identifier id'>xml</span> <span class='assign token'>=</span> <span class='Downloader constant id'>Downloader</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='source identifier id'>source</span><span class='rparen token'>)</span>
+  <span class='xml identifier id'>xml</span> <span class='assign token'>=</span> <span class='HttpResource constant id'>HttpResource</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='contents identifier id'>contents</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -301,7 +301,7 @@ Sets doc variable as the source document for a list of articles
 </div>
     
     <div id="footer">
-  Generated on Sat Apr 10 23:14:16 2010 by 
+  Generated on Sun Apr 18 13:45:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.8.6).
 </div>

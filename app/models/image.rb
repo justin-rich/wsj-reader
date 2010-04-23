@@ -9,6 +9,8 @@ class Image
   property :updated_at,  DateTime
   
   belongs_to :article
+  
+  validates_with_method :url, :method => :check_url
     
   ##
   # Deactivates the article
@@ -37,5 +39,19 @@ class Image
   # @return [String]
   def fullsize
     self.url.gsub(/_[A-Z]_/, "_G_")
+  end
+  
+  private
+  
+  ##
+  # Check the URL to make sure it represents a real asset
+  #
+  # @return [true, false] true if the URL starts with 'http://', false otherwise
+  def check_url
+    if self.url && /^http\:\/\/(.*)/.match(self.url)
+      true
+    else
+      [false, "You must specify a URL for an image"]
+    end
   end
 end

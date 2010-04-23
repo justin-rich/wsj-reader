@@ -61,12 +61,13 @@
 <div id="center_rail" class="left">
   
   <div id="picture" class="bottom_border">
-    <% image = Image.first(:active => true, :offset => rand(1+Image.count))  %>
+    <% whats_news = Category.first(:name => "What's News") %>
+    <% article = whats_news.first_article_with_image   %>
     <div class="title">
-      <%= link_to image.article.title, resource(image.article) %>
+      <%= link_to article.title, resource(article) %>
     </div>
-    <img src="<%= image.fullsize %>">
-    <div class="caption"><%= image.caption %></div>
+    <img src="<%= article.image.fullsize %>">
+    <div class="caption"><%= article.image.caption %></div>
   </div>
   
   <div id="top_story" class="article bottom_border">

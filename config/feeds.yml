@@ -3,7 +3,7 @@
     feeds  :
     - name : "Page One"
       url  : "http://online.wsj.com/page/us_in_todays_paper.html"
-      type : "FeedPageOne"
+      type : "PageOneageOne"
       
   - name   : "Opinion"
     display: 1  
