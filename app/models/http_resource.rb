@@ -40,7 +40,7 @@ class HttpResource
     5.times do |index|
       begin
         p "Downloading #{self.url} (#{index+1})"
-        return `curl -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`        
+        return  `curl -L -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`        
       rescue Exception => e
         p "There was an error downloading #{self.url}"
         p e
