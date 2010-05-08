@@ -133,14 +133,32 @@ class Article
   #
   # @param [Hash] attrs the given attributes for the article
   #
-  # @return [Article] the article with newly scraped attributes
+  # @return [Article, nil] the article with newly scraped attributes
+  #   or nil if the article title contains "What's News"
   def import(attrs)
     self.attributes = parse(attrs)
+
+    # Skip any articles with What's News in the title   
+    return nil if title_in_blacklist?
+    
+    # Otherwise save and return
     self.save
     self
   end
   
   private
+  
+  ##
+  # Compares the title against a black list of titles
+  #
+  # @return [true, false] true if the title matches a black list of titles, 
+  #   false otherwise
+  def title_in_blacklist?
+    BLACKLISTED_TITLES['titles'].each do |bl_title|
+      return true if eval("/#{bl_title}/i.match(self.title)")
+    end
+    false
+  end
   
   ##
   # Checks the URL to make sure it represents a real asset

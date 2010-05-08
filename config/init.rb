@@ -43,6 +43,9 @@ Merb::BootLoader.after_app_loads do
   Merb::Mailer.config = { :sendmail_path => '/usr/sbin/sendmail' }
   Merb::Mailer.delivery_method = Merb.testing? ? :test_send : :sendmail
   
+  ## Article title blacklist
+  BLACKLISTED_TITLES = YAML::load(File.open("#{Merb.root}/config/wsj/blacklisted_titles.yml"))
+  
   ## Handy method for removing HTML tags from content
   class String
     def strip_html(allow = [])
