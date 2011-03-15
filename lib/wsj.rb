@@ -28,9 +28,9 @@ module WSJ
       attrs.merge(default_attrs)          
     end
     ##
-    # Gets the Hpricot doc for the article
+    # Gets the Hpricot::HTML doc for the article
     #
-    # @return [Hpricot::Doc]
+    # @return [Hpricot::HTML]
     def get_doc(url)
        Hpricot(HttpResource.new(url).contents)
     end  
@@ -81,11 +81,18 @@ module WSJ
     #
     # @return [String] the cleaned fulltext of an article
     def get_fulltext
-      tmpdoc = Hpricot((self.doc/'div.articlePage').inner_html) # clone the existing doc to safely remove some HTML
-      (tmpdoc/'div').remove
-      (tmpdoc/'h3').remove    
-      tmpdoc.search('p').inject('') do |paragraphs, paragraph|
-        paragraphs << paragraph.to_html.transliterate
+      begin
+        tmpdoc = Hpricot(self.doc.at('div.articlePage').inner_html) # clone the existing doc to safely remove some HTML
+        (tmpdoc/'div').remove
+        (tmpdoc/'h3').remove
+
+        _fulltext = ''
+        tmpdoc.search('p').each do |paragraph|
+          _fulltext << paragraph.to_html.transliterate
+        end
+        _fulltext
+      rescue Exception => e
+        ''
       end
     end
     ##

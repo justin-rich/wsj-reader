@@ -3,11 +3,11 @@ class HttpResource
   ##
   # Instantiates HttpResource
   # 
-  # @param [String] url the resource to download
-  # @param [Integer] timeout the timeout limit in seconds
+  # @param [Integer] timeout the timeout limit in seconds  
+  # @param [String] url the resource address to download
   #
-  # @return [Downloader]
-  def initialize(url, test = false, connect_timeout = 20)
+  # @return [HttpResource]
+  def initialize(url, connect_timeout = 20, test = false)
     login
     self.url = url
     self.connect_timeout = connect_timeout
@@ -24,10 +24,10 @@ class HttpResource
   # @return [true]
   def login
     begin
-      File.open("#{Merb.root}/config/wsj/cookies.txt").read      
+      File.open("#{Settings.root}/tmp/cookies.txt").read      
     rescue Exception => e
-      `curl  -s -c #{Merb.root}/config/wsj/cookies.txt http://online.wsj.com/home-page`      
-      `curl  -s -c #{Merb.root}/config/wsj/cookies.txt -d "user=justin@justinrich.com&password=2p2aia5" http://commerce.wsj.com/auth/submitlogin`      
+      `curl --user-agent "#{user_agent}" -s -c #{Settings.root}/tmp/cookies.txt http://online.wsj.com/home-page`      
+      `curl --user-agent "#{user_agent}" -s -c #{Settings.root}/tmp/cookies.txt -d "user=justin@justinrich.com&password=2p2aia5" http://commerce.wsj.com/auth/submitlogin`      
     end
     true
   end
@@ -40,7 +40,7 @@ class HttpResource
     5.times do |index|
       begin
         p "Downloading #{self.url} (#{index+1})"
-        return  `curl -L -s -b#{Merb.root}/config/wsj/cookies.txt "#{self.url}"`        
+        return  `curl --user-agent "#{user_agent}" -L -s -b#{Settings.root}/tmp/cookies.txt "#{self.url}"`        
       rescue Exception => e
         p "There was an error downloading #{self.url}"
         p e
@@ -48,5 +48,10 @@ class HttpResource
       end
     end    
     ''         
-  end         
+  end     
+  ##
+  # The user agent to pass to the HTTP server
+  def user_agent
+    "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3B48b Safari/419.3"
+  end 
 end

@@ -7,9 +7,9 @@ describe HttpResource, 'when instantiated' do
   end
   
   it "should set a cookie in 'config/wsj/cookies.txt' if the file does not already exist" do    
-    `rm #{Merb.root}/config/wsj/cookies.txt`    
+    `rm #{Settings.root}/tmp/cookies.txt`    
     @resource.login
-    cookie = File.open(Merb.root + '/config/wsj/cookies.txt').read
+    cookie = File.open(Settings.root + '/tmp/cookies.txt').read
     cookie.should match("Cookie")
   end
   

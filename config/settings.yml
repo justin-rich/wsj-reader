@@ -1,0 +1,35 @@
+development:
+  url: http://wsj.justinrich.com:3000
+  session: wsj.justinrich.com
+  prefix: '#'
+  db:
+    adapter: mysql
+    database: wsj_development
+    user: stripes
+    password: XjLNRvE.:sPhWsWR
+    host: 127.0.0.1
+    uri: 'mysql://stripes:XjLNRvE.:sPhWsWR@127.0.0.1/wsj_development'
+
+test:
+  url: http://wsj.justinrich.com:3000
+  session: wsj.justinrich.com
+  prefix: '#'
+  db:
+    adapter: mysql
+    database: wsj_test
+    user: stripes
+    password: XjLNRvE.:sPhWsWR
+    host: 127.0.0.1
+    uri: 'mysql://stripes:XjLNRvE.:sPhWsWR@127.0.0.1/wsj_test'
+    
+production:
+  url: http://wsj.justinrich.com:3000
+  session: wsj.justinrich.com
+  prefix: '#'
+  db:
+    adapter: mysql
+    database: wsj_production
+    user: stripes
+    password: XjLNRvE.:sPhWsWR
+    host: 127.0.0.1
+    uri: 'mysql://stripes:XjLNRvE.:sPhWsWR@127.0.0.1/wsj_production'

@@ -1,0 +1,19 @@
+<div class="category">
+  <h3>WSJ</h3>
+</div>
+
+<div class="dateline">
+  <div class="center">
+    <span id="date">
+      <%= Time.now.strftime("%A %B %d, %Y") %>      
+    </span>
+  </div>
+</div>
+
+<br />
+
+<ul>
+<% @categories.each do |category| %>
+  <li><a href="/news?category_id=<%= category.id %>"><%= category.shortened_name %></a></li>
+<% end %>
+</ul>

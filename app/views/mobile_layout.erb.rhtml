@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>The Wall Street Journal | <%= @title || Time.now.strftime("%A %B %d, %Y") %></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/stylesheets/mobile.css" type="text/css" charset="utf-8" />
+    <meta name="viewport" content="width=240;" />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+  </head>
+  
+  <body>
+    <%= yield %>
+  </body>
+</html>

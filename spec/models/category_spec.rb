@@ -3,6 +3,7 @@ require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 describe Category, 'in general' do
   before(:each) do
     @category = Category.new
+    p Category.all.size
   end
   
   it "should be valid with valid attributes" do
@@ -18,9 +19,10 @@ end
 
 describe Category, "when passed first_article_with_image when there is an article with an image" do
   before(:all) do
-    @category = Factory.create(:category)
-    Factory.create(:article)
-    Factory.create(:image)
+    #@category = Factory.create(:category)
+    #Factory.create(:article)
+    @image = Factory.create(:image)
+    @category = @image.article.category
   end
   
   it "should return an article" do
@@ -35,8 +37,8 @@ end
 
 describe Category, "when passed first_article_with_image when there are no articles with an image" do
   before(:all) do
-    @category = Factory.create(:category)
-    Factory.create(:article)
+    @article = Factory.create(:article)
+    @category = @article.category
   end
   
   it "should return an article" do
@@ -60,9 +62,10 @@ describe Category, "when passed top_stories" do
 end
 
 describe Category, "when passed top_story" do  
+  
   it "should return an Article instance if there are active stories for the category" do
-    @category = Factory.create(:category)
     @article = Factory.create(:article)
+    @category = @article.category
     @category.top_story.should be_a_kind_of(Article)
   end
   

@@ -2,33 +2,33 @@ require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
 describe Image, "in general" do  
   before(:each) do
-    @image = Image.new
+    
   end
   
   it "should be valid with valid attributes" do
-    @image.attributes = Factory.attributes_for(:image)
+    @image = Factory.build(:image)
+    @image.should be_valid
+  end
+  
+  it "should be valid without a caption" do
+    @image = Factory.build(:image, :caption => nil)    
     @image.should be_valid
   end
   
   it "should be invalid without a URL" do
-    @image.attributes = Factory.attributes_for(:image).except(:url)
+    @image = Factory.build(:image, :url => nil)
     @image.should_not be_valid
   end
   
   it "should be invalid without a valid URL" do
-    @image.attributes = Factory.attributes_for(:image).except(:url)
-    @image.url = "not_a_url"
+    @image = Factory.build(:image, :url => "not_a_url")    
     @image.should_not be_valid
   end
     
   it "should be invalid without an associated article" do
-    @image.attributes = Factory.attributes_for(:image).except(:article_id)
+    @image = Image.new
+    @image.attributes = Factory.attributes_for(:image)
     @image.should_not be_valid
-  end
-  
-  it "should be valid without a caption" do
-    @image.attributes = Factory.attributes_for(:image).except(:caption)
-    @image.should be_valid
   end
 end
 

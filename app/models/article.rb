@@ -1,29 +1,29 @@
 class Article
   include DataMapper::Resource
+
   include WSJ::Parser
   
-  property :id,          Serial
-  property :url,         Text
-  property :title,       String, :length => 255
-  property :subtitle,    String, :length => 255
-  property :author,      String, :length => 255
-  property :pub_date,    String, :length => 255
-  property :fulltext,    Text
-  property :description, Text
-  property :priority,    Integer
-  property :active,      Boolean
-  property :unread,      Boolean  
-  property :attempts,    Integer
-  property :created_at,  DateTime
-  property :updated_at,  DateTime  
+  property :id,           Serial
+  property :url,          Text
+  property :title,        String, :length => 255
+  property :subtitle,     String, :length => 255
+  property :author,       String, :length => 255
+  property :pub_date,     String, :length => 255
+  property :fulltext,     Text
+  property :description,  Text
+  property :priority,     Integer
+  property :active,       Boolean
+  property :unread,       Boolean  
+  property :attempts,     Integer
+  property :created_at,   DateTime
+  property :updated_at,   DateTime
   
   belongs_to :feed
   belongs_to :category
+  
   has 1,     :image
   
   before :destroy, :destroy_image
-  
-  is :searchable
   
   validates_with_method :url,      :method => :check_url
   validates_with_method :title,    :method => :check_title  
@@ -39,7 +39,7 @@ class Article
   #             :category => Category.first,
   #             :description => 'Description',
   #             :feed => Feed.first,
-  #             :url => "http://online.wsj.com/articles/1",
+  #             :url => "http://online.wsj.com/news/1",
   #             :priority => 1
   #           )
   #

@@ -1,63 +1,59 @@
 require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
 describe Article do
-  before(:each) do
-    @article = Article.new
-  end
   
   it "should be valid with valid attributes" do
-    @article.attributes = Factory.attributes_for(:article)
+    @article = Factory.build(:article)
     @article.should be_valid
   end
   
   it "should be invalid without a URL" do
-    @article.attributes = Factory.attributes_for(:article).except(:url)
+    @article = Factory.build(:article, :url => nil)    
     @article.should_not be_valid
   end
   
   it "should be invalid with an invalid URL" do
-    @article.attributes = Factory.attributes_for(:article).except(:url)
-    @article.url = 'not_a_url'
+    @article = Factory.build(:article, :url => "not_a_url")        
     @article.should_not be_valid
   end
   
   it "should be invalid without a title" do
-    @article.attributes = Factory.attributes_for(:article).except(:title)
+    @article = Factory.build(:article, :title => nil)            
     @article.should_not be_valid
   end
   
   it "should be valid with or without a subtitle" do
-    @article.attributes = Factory.attributes_for(:article).except(:subtitle)
+    @article = Factory.build(:article, :subtitle => nil)                
     @article.should be_valid
   end
     
   it "should be valid with or without an author" do
-    @article.attributes = Factory.attributes_for(:article).except(:author)
+    @article = Factory.build(:article, :author => nil)                    
     @article.should be_valid
   end
   
   it "should be invalid without a pubDate" do
-    @article.attributes = Factory.attributes_for(:article).except(:pub_date)
+    @article = Factory.build(:article, :pub_date => nil)                        
     @article.should_not be_valid
   end
   
   it "should be invalid without fulltext" do
-    @article.attributes = Factory.attributes_for(:article).except(:fulltext)
+    @article = Factory.build(:article, :fulltext => nil)                            
     @article.should_not be_valid
   end
   
   it "should be valid with or without a description" do
-    @article.attributes = Factory.attributes_for(:article).except(:description)
+    @article = Factory.build(:article, :description => nil)                                
     @article.should be_valid
   end
   
   it "should be invalid without a priority" do
-    @article.attributes = Factory.attributes_for(:article).except(:priority)
+    @article = Factory.build(:article, :priority => nil)                                    
     @article.should_not be_valid
   end
   
   it "should be valid with or without active set" do
-    @article.attributes = Factory.attributes_for(:article).except(:active)
+    @article = Factory.build(:article, :active => nil)                                        
     @article.should be_valid
   end
 end
@@ -89,11 +85,6 @@ describe Article, "factory" do
   
   it "should set the attempts count to zero for a new article" do
     @article.attempts.should == 0
-  end
-  
-  it "should increment the attempts count for an existing article" do
-    @existing_article = call_article_factory
-    @existing_article.attempts.should == 1
   end
 end
 
@@ -149,22 +140,5 @@ describe Article, "when passed mark_as_read" do
   it "should mark unread as false" do
     @article.mark_as_read
     @article.unread.should == false
-  end
-end
-
-describe Article, "when passed destroy_image" do
-  before(:all) do
-    @article = Factory.create(:article)
-  end
-  
-  it "should return true if there is no associated image" do
-    @article.destroy_image.should == true
-  end
-  
-  it "should delete the associated image if it does exist" do
-    @image = Factory.create(:image)  
-    @article.image.should_not be_nil # ensure the associated image exists
-    @article.destroy_image
-    @article.image.should be_nil
   end
 end

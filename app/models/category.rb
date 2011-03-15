@@ -1,9 +1,10 @@
 class Category
   include DataMapper::Resource
   
-  property :id,      Serial
-  property :name,    String, :length => 255
-  property :display, Boolean
+  property :id,         Serial
+  property :name,       String, :length => 255
+  property :short_name, String, :length => 255  
+  property :display,    Boolean
   
   has n, :feeds
   has n, :articles  
@@ -17,7 +18,7 @@ class Category
   # @return [Article, nil] the highest priority active article for the category, 
   #   or nil if the category has no article
   def self.reset
-    `#{Merb.root}/bin/rake db:automigrate`
+    `#{Settings.root}/bin/rake db:automigrate`
     load_source_data    
   end
   ##
@@ -28,7 +29,7 @@ class Category
   # @return [Article, nil] the highest priority active article for the category, 
   #   or nil if the category has no article
   def self.update_articles
-    Feed.all.each {|f| f.update_articles; sleep 60}    
+    Feed.all.each {|f| f.update_articles; sleep 2}    
   end
   ##
   # Loads the categories and feeds for the app
@@ -38,7 +39,7 @@ class Category
   # @return [Article, nil] the highest priority active article for the category, 
   #   or nil if the category has no article
   def self.load_source_data
-    YAML::load(File.open("#{Merb.root}/config/feeds.yml")).each do |category|
+    YAML::load(File.open("#{Settings.root}/config/feeds.yml")).each do |category|
       c = Category.create(:name => category["name"], :display => category["display"])
       
       next unless category["feeds"]
@@ -80,7 +81,7 @@ class Category
   #
   # @return [Array<Article>] the highest priority active articles for the category
   def top_stories(size = 3)
-    self.articles(:active => true, :order => [ :feed_id, :priority ], :limit => size)
+    self.articles(:active => true, :order => [ :priority ], :limit => size)
   end
   ##
   # Finds the highest priority active article with an image
@@ -95,6 +96,13 @@ class Category
     else
       self.articles.first
     end
+  end
+  ##
+  # Returns a shorter name for the category -- used especially with mobile
+  #
+  # @return String
+  def shortened_name
+    self.short_name ? self.short_name : self.name
   end
   
   private

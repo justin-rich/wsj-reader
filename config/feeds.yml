@@ -2,21 +2,21 @@
     display: 1  
     feeds  :
     - name : "Page One"
-      url  : "http://online.wsj.com/page/us_in_todays_paper.html"
+      url  : "http://online.wsj.com/itp/date/us/pageone"
       type : "PageOneageOne"
       
   - name   : "Opinion"
     display: 1  
     feeds  :
     - name : "Opinion"
-      url  : "http://online.wsj.com/page/us_in_todays_paper.html"
+      url  : "http://online.wsj.com/itp/date/us/opinion"
       type : "FeedOpinion"
       
   - name   : "Money & Investing"
     display: 1  
     feeds  :
     - name : "Money & Investing"
-      url  : "http://online.wsj.com/page/us_in_todays_paper.html"
+      url  : "http://online.wsj.com/itp/date/us/moneyinvesting"
       type : "FeedMoneyInvesting"        
       
   - name   : "What's News"

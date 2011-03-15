@@ -1,0 +1,52 @@
+<% @title = @article.title %>
+
+<%= partial :"../shared/header" %>
+
+<div class="category">
+  <%= partial :"../shared/categories" %>  
+  <%= partial :"../shared/search" %>
+  
+  <h3><%= @category.name %></h3>  
+</div>
+
+
+<div class="article">    
+  <h1><%= @article.title %></h1>  
+  
+  <% unless @article.subtitle.nil? || @article.subtitle.empty? %>
+    <h2><%= @article.subtitle %></h2>
+  <% end %>
+  
+  <% if @article.image %>
+    <div class="image">
+      <img src="<%= @article.image.url %>" alt="<%= @article.image.caption %>"/><br />
+      <div id="caption"><p><%= @article.image.caption %></p></div>
+    </div>  
+  <% end %>
+
+  <div id="fulltext" class="four_column">
+    <% unless @article.subtitle.nil? || @article.author.empty? %>
+      <div class="byline"><%= @article.author %></div> 
+    <% end %>
+    
+    <%= @article.fulltext %>
+  </div>
+</div>
+
+<div class="ticker">
+  <ul>
+  <%# @articles.each do |article| %>
+    <%# if article.image %>    
+      <!-- <li class="image">
+        <a href="/news/<%#= article.id %>"><img src="<%#= article.image.thumbnail %>" title="<%#= article.title %>"></a>
+      </li>    --> 
+    <%# end %>
+  <%# end %>
+  </ul>  
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  function levelUp () {
+    window.location = "/";
+  }
+</script>

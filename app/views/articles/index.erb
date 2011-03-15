@@ -1,0 +1,79 @@
+<%= partial :"../shared/header" %>
+
+<div class="category">
+  <%= partial :"../shared/categories" %>  
+  <%= partial :"../shared/search" %>
+  
+
+  <h3><%= @category.name %></h3>  
+</div>
+
+<% if @articles.empty? %>
+  <p>There are 0 results for your search</p>
+<% end %>
+
+<ul id="articles" class="articles">  
+  <% @articles.each do |article| %>
+    <li>
+      <% if article.image && article.image.thumbnail %>
+        <a href="/news/<%= article.id %>"><img src="<%= article.image.thumbnail %>"></a>
+      <% end %>
+      <h2><a href="/news/<%= article.id %>"><%= article.title %></a></h2>
+      <p><%= article.desc %></p>
+    </li>    
+  <% end %>
+</ul>
+
+<script type="text/javascript" charset="utf-8">
+
+  if (<%= @articles.size %> > 3) {
+    $("#articles").addClass("three_column");
+  } else {
+    $("#articles").addClass("stacked")
+  };
+  
+  // Add data to let the hover know which index they have
+	for(var i = 0; i < $("ul li h2 a").size(); i++) {
+		$("ul li h2 a").eq(i).data("number", i);
+	}
+	
+	// Simulote the "hover" effect with the mouse
+	$("ul li h2 a").hover(
+		function () {
+			currentSelection = $(this).data("number");
+			setSelected(currentSelection);
+		}, function() {
+			$("ul li h2 a").removeClass("itemhover");
+			currentUrl = '';
+		}
+	);
+	
+	
+  function navigate(direction) {
+  	// Check if any of the menu items is selected
+  	if($("ul .itemhover").size() == 0) {
+  		currentSelection = -1;
+  	}
+
+  	if(direction == 'up' && currentSelection != -1) {
+  		if(currentSelection != 0) {
+  			currentSelection--;
+  		}
+  	} else if (direction == 'down') {
+  		if(currentSelection != $("ul li").size() -1) {
+  			currentSelection++;
+  		}
+  	}
+  	setSelected(currentSelection);
+  }
+
+  function setSelected(menuitem) {
+  	$("ul li").removeClass("itemhover");
+  	$("ul li").eq(menuitem).addClass("itemhover");
+  	currentUrl = $("ul li h2 a").eq(menuitem).attr("href");
+  }
+	
+	function levelUp () {
+    window.location = "/";
+  }
+</script>

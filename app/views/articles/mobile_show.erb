@@ -1,0 +1,26 @@
+<% @title = @article.title %>
+
+<div class="category">
+  <h3><%= @category.shortened_name %></h3>
+</div>
+
+<div class="dateline">
+  <div class="center">
+    <span id="date">
+      <%= Time.parse(@article.pub_date).strftime("%A %B %d, %Y") %>      
+    </span>
+  </div>
+</div>
+
+<div class="article">    
+  <h1><%= @article.title %></h1>  
+
+  <div id="fulltext">
+    <% unless @article.subtitle.nil? || @article.author.empty? %>
+      <div class="byline"><%= @article.author %></div> 
+      <div class="byline_border">&nbsp;</div>
+    <% end %>
+    
+    <%= @article.fulltext %>
+  </div>
+</div>

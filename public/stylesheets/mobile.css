@@ -6,6 +6,7 @@ body {
   background-color:  #FFFFF3;
 	border-bottom:1em solid #666666;
 	padding-bottom:1em;
+	width:240px;
 }
 
 * {
@@ -21,6 +22,10 @@ html {
 img {
 	border:1px solid black;
 	text-align:center;
+}
+
+a, a:hover, a:visited {
+	color:#333333;
 }
 
 /* /shared/header partial */
@@ -229,4 +234,5 @@ ul.stacked li {
 	text-align: left;
 	padding-top:0.25em;
 }
+
 

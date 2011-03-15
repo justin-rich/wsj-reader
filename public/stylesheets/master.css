@@ -287,7 +287,8 @@ ul.stacked li {
 }
 
 .article p.continue {
-	font:  italic 1.6em/1.1 Georgia,"Century Schoolbook","Times New Roman",Times,serif;
+	font: Georgia,"Century Schoolbook","Times New Roman",Times,serif;
+	font-style:italic;
 	text-align:right;
 	margin-right:1em;
 	margin-top:1em;
@@ -330,4 +331,16 @@ ul.stacked li {
 	margin-top:0.5em;
 }
 
+/* Ticker */
 
+div.ticker {
+	bottom:0px;
+}
+
+div.ticker ul {
+	width:100%;
+}
+
+div.ticker li {
+	display:inline;
+}

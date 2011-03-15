@@ -2,18 +2,18 @@
 
 function getArticle (article_id, query) {
 	if(!query) {
-		window.location = "/articles/" + article_id
+		window.location = "/news/" + article_id
 	} else {
-		window.location = "/articles/" + article_id + "?query=" + query
+		window.location = "/news/" + article_id + "?query=" + query
 	};
 
 }
 
 function getCategory (category_id, query) {
 	if(!query) {
-		window.location = "/categories/" + category_id + "/articles/"
+		window.location = "/news/?category_id=" + category_id
 	} else {
-		window.location = "/articles?query=" + query
+		window.location = "/news?query=" + query
 	};
 }
 
