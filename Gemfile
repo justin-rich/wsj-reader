@@ -1,55 +1,42 @@
-source :gemcutter
+source 'http://rubygems.org/'
+gem "sinatra", :git => "git://github.com/sinatra/sinatra.git"
 
-# dependencies are generated using a strict version, don't forget to edit the dependency versions when upgrading.
-merb_rc1_gems_version = "1.1.0.rc1"
-merb_pre_gems_version = "1.1.0.pre"
-dm_gems_version   = "0.10.2"
-do_gems_version   = "0.10.1"
+gem "unicorn",  "~>2.0.1"
+gem "rack"
+gem "racksh"
 
-gem "thor", "0.9.9"
+gem "mysql"
 
-# For more information about each component, please read http://wiki.merbivore.com/faqs/merb_components
-gem "merb-core", merb_pre_gems_version 
-gem "merb-action-args", merb_pre_gems_version
-gem "merb-cache", merb_pre_gems_version  
-gem "merb-assets", merb_pre_gems_version  
-gem "merb-helpers", merb_pre_gems_version 
-gem "merb-mailer", merb_rc1_gems_version  
-gem "merb-slices", merb_pre_gems_version  
-gem "merb-auth-core", merb_rc1_gems_version
-gem "merb-auth-more", merb_rc1_gems_version
-gem "merb-auth-slice-password", merb_rc1_gems_version
-gem "merb-param-protection", merb_pre_gems_version
-gem "merb-exceptions", merb_pre_gems_version
-gem "merb-gen", "1.0.15"
-
+do_gems_version   = "0.10.3"
 gem "data_objects", do_gems_version
 gem "do_mysql", do_gems_version # If using another database, replace this
-gem "dm-core", dm_gems_version         
+
+dm_gems_version   = "1.0.2"
+gem "datamapper", dm_gems_version         
+gem "dm-core", dm_gems_version
+gem 'dm-mysql-adapter', dm_gems_version
 gem "dm-aggregates", dm_gems_version   
 gem "dm-migrations", dm_gems_version   
 gem "dm-timestamps", dm_gems_version   
 gem "dm-types", dm_gems_version        
 gem "dm-validations", dm_gems_version  
-gem "dm-serializer", dm_gems_version   
-gem "dm-is-searchable", dm_gems_version   
-gem "dm-sphinx-adapter", "0.9.0"
+gem "dm-serializer", dm_gems_version
+gem 'dm-factory_girl', "1.2.3", :require => "factory_girl"
 
-gem "merb_datamapper", merb_pre_gems_version
-
-gem "hpricot", "0.6.161"
-gem "nokogiri", "1.0.6"
-gem 'merb-colorful-logger'
+#gem "factory_girl"
+gem "hpricot"
 gem "chardet", :require => "UniversalDetector"
 gem "yard", "0.5.4"
-gem "ZenTest", "4.3.1", :require => "autotest"
-gem "spork", "0.8.2"
-gem "rcov", "0.9.8"
-gem "autotest-notification", "2.2.1"
-gem 'dm-factory_girl', "1.2.3", :require => "factory_girl"
-gem 'activesupport', "2.3.5", :require => "active_support"
 
-gem "bundler", "0.9.12"
-gem "thin", "1.2.7"
-gem "rack", "1.1.0"
-gem "eventmachine", "0.12.10"
+group :test do
+  gem "rspec", "~> 2.0"
+  gem "cucumber", "~> 0.10"  
+  gem "rcov"
+  gem "autotest"
+  gem "autotest-fsevent"  
+  gem "autotest-growl"    
+  gem "rack-test"
+end
+
+gem "activesupport", "2.3.5", :require => "active_support"
+
